@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TailoredShapes — Legacy System Integration</title>
-  <meta name="description" content="Anti-corruption layers for legacy systems. Prototype in a day, production in a sprint.">
+  <meta name="description" content="Modern APIs for legacy databases. No rewrites. No migration risk.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwindcss.config = {
@@ -16,28 +16,60 @@
           fontFamily: {
             sans: ['Inter', 'system-ui', 'sans-serif'],
           },
+          colors: {
+            brand: {
+              50:  '#eef4ff',
+              100: '#dae6ff',
+              200: '#bdd4ff',
+              300: '#90b8ff',
+              400: '#5b90ff',
+              500: '#3b6cfa',
+              600: '#2450ef',
+              700: '#1c3edc',
+              800: '#1e34b2',
+              900: '#1e318c',
+            },
+          },
         },
       },
     }
   </script>
+  <style>
+    .hero-glow {
+      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 108, 250, 0.12), transparent);
+    }
+    .card-lift {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-lift:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+    .flow-gradient {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    }
+  </style>
 </head>
 <body class="font-sans text-slate-800 antialiased">
 
   <!-- Hero -->
-  <section class="bg-slate-900 text-white">
-    <div class="max-w-5xl mx-auto px-6 py-24 md:py-32">
-      <h1 class="text-3xl md:text-5xl font-bold leading-tight max-w-3xl">
-        Your legacy systems work.<br>They just don't talk to each other.
+  <section class="relative bg-slate-950 text-white overflow-hidden">
+    <div class="hero-glow absolute inset-0"></div>
+    <div class="relative max-w-6xl mx-auto px-6 py-28 md:py-40">
+      <p class="text-sm font-medium tracking-widest uppercase text-brand-400 mb-6">Legacy System Integration</p>
+      <h1 class="text-4xl md:text-6xl font-bold leading-[1.08] tracking-tight max-w-3xl">
+        Modern APIs for<br>legacy databases.
       </h1>
-      <p class="mt-6 text-lg md:text-xl text-slate-300 max-w-2xl">
-        We build anti-corruption layers that give your legacy databases a modern API — without touching the legacy code. Prototype in a day, production in a sprint.
+      <p class="mt-6 text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed">
+        Anti-corruption layers that surface clean data from systems you can't replace. Zero changes to the source.
       </p>
       <div class="mt-10 flex flex-wrap gap-4">
-        <a href="#case-studies" class="inline-block bg-white text-slate-900 font-semibold px-6 py-3 rounded-lg hover:bg-slate-100 transition">
-          See the evidence
+        <a href="#case-studies" class="inline-flex items-center gap-2 bg-brand-600 text-white font-medium px-6 py-3 rounded-lg hover:bg-brand-700 transition shadow-lg shadow-brand-600/20">
+          View case studies
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
         </a>
-        <a href="mailto:tom@tailoredshapes.com" class="inline-block border border-slate-400 text-slate-200 font-semibold px-6 py-3 rounded-lg hover:border-white hover:text-white transition">
-          Talk to us
+        <a href="mailto:tom@tailoredshapes.com" class="inline-flex items-center gap-2 border border-slate-700 text-slate-300 font-medium px-6 py-3 rounded-lg hover:border-slate-500 hover:text-white transition">
+          Contact us
         </a>
       </div>
     </div>
@@ -45,28 +77,40 @@
 
   <!-- The Problem -->
   <section class="bg-white">
-    <div class="max-w-5xl mx-auto px-6 py-20">
-      <h2 class="text-2xl md:text-3xl font-bold">The problem is always the same</h2>
-      <p class="mt-4 text-slate-600 max-w-2xl">
-        The data you need is locked behind systems nobody wants to rewrite.
-      </p>
-      <div class="mt-12 grid md:grid-cols-3 gap-8">
-        <div class="border border-slate-200 rounded-lg p-6">
-          <h3 class="font-semibold text-lg">SAP won't die</h3>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            Z-tables with YYYYMMDD date strings. BAPI calls that return 47 fields you don't need. Nobody's rewriting it, and the vendor contract runs to 2031.
+    <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
+      <div class="max-w-2xl">
+        <p class="text-sm font-medium tracking-widest uppercase text-brand-600 mb-3">The Challenge</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Common integration challenges</h2>
+        <p class="mt-4 text-slate-500 text-lg leading-relaxed">
+          Critical business data locked behind systems that cannot be rewritten or replaced.
+        </p>
+      </div>
+      <div class="mt-14 grid md:grid-cols-3 gap-6">
+        <div class="bg-white border border-slate-200/80 rounded-xl p-7 shadow-sm card-lift">
+          <div class="w-10 h-10 rounded-lg bg-brand-50 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Legacy ERP systems</h3>
+          <p class="mt-3 text-slate-500 text-sm leading-relaxed">
+            Custom tables, proprietary date formats, verbose API contracts. The vendor relationship extends for years. Replacement is not on the roadmap.
           </p>
         </div>
-        <div class="border border-slate-200 rounded-lg p-6">
-          <h3 class="font-semibold text-lg">Three databases, zero shared IDs</h3>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            One system uses SERIAL, another uses UUIDs, the third has VARCHAR(20) account codes. Joining across them means a spreadsheet and a prayer.
+        <div class="bg-white border border-slate-200/80 rounded-xl p-7 shadow-sm card-lift">
+          <div class="w-10 h-10 rounded-lg bg-brand-50 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Fragmented identity</h3>
+          <p class="mt-3 text-slate-500 text-sm leading-relaxed">
+            SERIAL keys in one system, UUIDs in another, account codes in a third. No common identifier across databases. Cross-system joins are manual.
           </p>
         </div>
-        <div class="border border-slate-200 rounded-lg p-6">
-          <h3 class="font-semibold text-lg">The BI team is stuck</h3>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            Nightly ETL loads stale data into a warehouse nobody trusts. The dashboard says one thing, the source says another. Everyone blames the data.
+        <div class="bg-white border border-slate-200/80 rounded-xl p-7 shadow-sm card-lift">
+          <div class="w-10 h-10 rounded-lg bg-brand-50 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Stale reporting pipelines</h3>
+          <p class="mt-3 text-slate-500 text-sm leading-relaxed">
+            Nightly ETL into a warehouse that diverges from the source. Conflicting numbers across dashboards. Decisions delayed by data trust issues.
           </p>
         </div>
       </div>
@@ -74,65 +118,80 @@
   </section>
 
   <!-- The Approach -->
-  <section class="bg-slate-50">
-    <div class="max-w-5xl mx-auto px-6 py-20">
-      <h2 class="text-2xl md:text-3xl font-bold">Anti-corruption layers, not rewrites</h2>
-      <p class="mt-4 text-slate-600 max-w-2xl">
-        We put a clean API in front of your legacy database. The legacy system keeps running untouched. Your new applications talk to the API.
-      </p>
+  <section class="bg-slate-50 border-y border-slate-200/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
+      <div class="max-w-2xl">
+        <p class="text-sm font-medium tracking-widest uppercase text-brand-600 mb-3">How It Works</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Anti-corruption layers, not rewrites</h2>
+        <p class="mt-4 text-slate-500 text-lg leading-relaxed">
+          A clean API boundary in front of each legacy database. Source systems remain untouched. New applications consume the unified API.
+        </p>
+      </div>
 
       <!-- Flow diagram -->
-      <div class="mt-12 overflow-x-auto">
+      <div class="mt-14 bg-white rounded-2xl border border-slate-200/80 shadow-sm p-8 md:p-10 overflow-x-auto">
         <svg viewBox="0 0 900 100" class="w-full max-w-3xl mx-auto" xmlns="http://www.w3.org/2000/svg">
           <style>
-            .flow-text { font-family: Inter, system-ui, sans-serif; font-size: 11px; fill: #334155; text-anchor: middle; }
-            .flow-box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 6; }
-            .flow-box-accent { fill: #1e293b; stroke: #1e293b; stroke-width: 1.5; rx: 6; }
-            .flow-text-accent { font-family: Inter, system-ui, sans-serif; font-size: 11px; fill: #ffffff; text-anchor: middle; }
-            .flow-arrow { stroke: #94a3b8; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+            .flow-text { font-family: Inter, system-ui, sans-serif; font-size: 11px; font-weight: 500; fill: #475569; text-anchor: middle; }
+            .flow-box { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; rx: 8; }
+            .flow-box-accent { fill: #2450ef; stroke: #2450ef; stroke-width: 1.5; rx: 8; }
+            .flow-text-accent { font-family: Inter, system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: #ffffff; text-anchor: middle; }
+            .flow-arrow { stroke: #cbd5e1; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
           </style>
           <defs>
             <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-              <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+              <polygon points="0 0, 8 3, 0 6" fill="#cbd5e1"/>
             </marker>
+            <filter id="card-shadow" x="-4%" y="-4%" width="108%" height="120%">
+              <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.06"/>
+            </filter>
           </defs>
-          <rect x="10" y="25" width="110" height="50" class="flow-box"/>
+          <rect x="10" y="25" width="110" height="50" class="flow-box" filter="url(#card-shadow)"/>
           <text x="65" y="55" class="flow-text">Legacy DB</text>
           <line x1="120" y1="50" x2="155" y2="50" class="flow-arrow"/>
-          <rect x="155" y="25" width="90" height="50" class="flow-box"/>
+          <rect x="155" y="25" width="90" height="50" class="flow-box" filter="url(#card-shadow)"/>
           <text x="200" y="55" class="flow-text">CDC</text>
           <line x1="245" y1="50" x2="280" y2="50" class="flow-arrow"/>
-          <rect x="280" y="25" width="90" height="50" class="flow-box"/>
+          <rect x="280" y="25" width="90" height="50" class="flow-box" filter="url(#card-shadow)"/>
           <text x="325" y="55" class="flow-text">Kafka</text>
           <line x1="370" y1="50" x2="405" y2="50" class="flow-arrow"/>
-          <rect x="405" y="25" width="120" height="50" class="flow-box"/>
+          <rect x="405" y="25" width="120" height="50" class="flow-box" filter="url(#card-shadow)"/>
           <text x="465" y="55" class="flow-text">Transformers</text>
           <line x1="525" y1="50" x2="560" y2="50" class="flow-arrow"/>
           <rect x="560" y="25" width="130" height="50" class="flow-box-accent"/>
           <text x="625" y="55" class="flow-text-accent">MeshQL API</text>
           <line x1="690" y1="50" x2="725" y2="50" class="flow-arrow"/>
-          <rect x="725" y="25" width="120" height="50" class="flow-box"/>
+          <rect x="725" y="25" width="120" height="50" class="flow-box" filter="url(#card-shadow)"/>
           <text x="785" y="55" class="flow-text">Your Apps</text>
         </svg>
       </div>
 
-      <div class="mt-12 grid md:grid-cols-3 gap-8">
+      <div class="mt-14 grid md:grid-cols-3 gap-10">
         <div>
-          <h3 class="font-semibold">Legacy untouched</h3>
-          <p class="mt-2 text-slate-600 text-sm leading-relaxed">
-            We read from the transaction log. No triggers, no stored procedures, no changes to the source system.
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center text-sm font-semibold">1</div>
+            <h3 class="font-semibold">Zero source modification</h3>
+          </div>
+          <p class="text-slate-500 text-sm leading-relaxed pl-11">
+            Data is captured from the transaction log via CDC. No triggers, no stored procedures, no changes to the source system.
           </p>
         </div>
         <div>
-          <h3 class="font-semibold">You own the code</h3>
-          <p class="mt-2 text-slate-600 text-sm leading-relaxed">
-            Everything we build is yours. Standard Java, standard infrastructure. No proprietary runtime, no vendor lock-in.
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center text-sm font-semibold">2</div>
+            <h3 class="font-semibold">Full code ownership</h3>
+          </div>
+          <p class="text-slate-500 text-sm leading-relaxed pl-11">
+            Standard Java 21 on standard infrastructure. No proprietary runtime. Complete source code delivered to your team.
           </p>
         </div>
         <div>
-          <h3 class="font-semibold">Prototype in a day</h3>
-          <p class="mt-2 text-slate-600 text-sm leading-relaxed">
-            Point our CLI at your database, describe the domain, and get a working API. Refine from there.
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center text-sm font-semibold">3</div>
+            <h3 class="font-semibold">Rapid prototyping</h3>
+          </div>
+          <p class="text-slate-500 text-sm leading-relaxed pl-11">
+            Automated introspection and code generation produces a working API from an existing database schema in hours, not weeks.
           </p>
         </div>
       </div>
@@ -141,87 +200,122 @@
 
   <!-- Case Studies -->
   <section id="case-studies" class="bg-white">
-    <div class="max-w-5xl mx-auto px-6 py-20">
-      <h2 class="text-2xl md:text-3xl font-bold">Case studies</h2>
-      <p class="mt-4 text-slate-600 max-w-2xl">
-        Every example ships with working code, Docker Compose, and tests.
-      </p>
+    <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
+      <div class="max-w-2xl">
+        <p class="text-sm font-medium tracking-widest uppercase text-brand-600 mb-3">Evidence</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Case studies</h2>
+        <p class="mt-4 text-slate-500 text-lg leading-relaxed">
+          Each example includes working source code, Docker Compose configuration, and automated tests.
+        </p>
+      </div>
 
       <!-- Featured -->
-      <div class="mt-12 grid md:grid-cols-3 gap-8">
-        <a href="https://tailoredshapes.github.io/meshql/examples/legacy" class="block border border-slate-200 rounded-lg p-6 hover:border-slate-400 transition group">
-          <h3 class="font-semibold text-lg group-hover:text-slate-900">Springfield Electric</h3>
-          <p class="mt-2 text-slate-500 text-sm">Anti-corruption layer over legacy PostgreSQL. CDC pipeline, internal resolvers, three frontend apps.</p>
-          <span class="mt-4 inline-block text-sm font-medium text-slate-500 group-hover:text-slate-700">Read case study &rarr;</span>
+      <div class="mt-14 grid md:grid-cols-3 gap-6">
+        <a href="https://tailoredshapes.github.io/meshql/examples/legacy" class="block bg-white border border-slate-200/80 rounded-xl p-7 shadow-sm card-lift group">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-[11px] font-medium tracking-wide uppercase text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">CDC + PostgreSQL</span>
+          </div>
+          <h3 class="font-semibold text-lg group-hover:text-brand-700 transition-colors">Springfield Electric</h3>
+          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Anti-corruption layer over legacy PostgreSQL. CDC pipeline, internal resolvers, three frontend applications.</p>
+          <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-brand-600 group-hover:gap-2.5 transition-all">
+            View details
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+          </span>
         </a>
-        <a href="https://tailoredshapes.github.io/meshql/examples/power-plants" class="block border border-slate-200 rounded-lg p-6 hover:border-slate-400 transition group">
-          <h3 class="font-semibold text-lg group-hover:text-slate-900">Global Power Plants</h3>
-          <p class="mt-2 text-slate-500 text-sm">34,936 plants across 167 countries. Mesher code-gen from a legacy energy database.</p>
-          <span class="mt-4 inline-block text-sm font-medium text-slate-500 group-hover:text-slate-700">Read case study &rarr;</span>
+        <a href="https://tailoredshapes.github.io/meshql/examples/power-plants" class="block bg-white border border-slate-200/80 rounded-xl p-7 shadow-sm card-lift group">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-[11px] font-medium tracking-wide uppercase text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Code Generation</span>
+          </div>
+          <h3 class="font-semibold text-lg group-hover:text-brand-700 transition-colors">Global Power Plants</h3>
+          <p class="mt-2 text-slate-500 text-sm leading-relaxed">34,936 plants across 167 countries. Automated code generation from a legacy energy database.</p>
+          <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-brand-600 group-hover:gap-2.5 transition-all">
+            View details
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+          </span>
         </a>
-        <a href="https://tailoredshapes.github.io/meshql/examples/enterprise" class="block border border-slate-200 rounded-lg p-6 hover:border-slate-400 transition group">
-          <h3 class="font-semibold text-lg group-hover:text-slate-900">The Enterprise</h3>
-          <p class="mt-2 text-slate-500 text-sm">Two legacy databases, one unified API. The capstone example showing full MeshQL federation.</p>
-          <span class="mt-4 inline-block text-sm font-medium text-slate-500 group-hover:text-slate-700">Read case study &rarr;</span>
+        <a href="https://tailoredshapes.github.io/meshql/examples/enterprise" class="block bg-white border border-slate-200/80 rounded-xl p-7 shadow-sm card-lift group">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-[11px] font-medium tracking-wide uppercase text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Federation</span>
+          </div>
+          <h3 class="font-semibold text-lg group-hover:text-brand-700 transition-colors">The Enterprise</h3>
+          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Two legacy databases unified behind a single API. Full federation across 13 services.</p>
+          <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-brand-600 group-hover:gap-2.5 transition-all">
+            View details
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+          </span>
         </a>
       </div>
 
       <!-- All examples -->
-      <div class="mt-10 border-t border-slate-100 pt-8">
-        <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wide">All examples</h3>
-        <ul class="mt-4 grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-2 text-sm">
-          <li><a href="https://tailoredshapes.github.io/meshql/examples/farm" class="text-slate-600 hover:text-slate-900">Farm &mdash; multi-entity federation</a></li>
-          <li><a href="https://tailoredshapes.github.io/meshql/examples/events" class="text-slate-600 hover:text-slate-900">Events &mdash; CDC pipeline</a></li>
-          <li><a href="https://tailoredshapes.github.io/meshql/examples/logistics" class="text-slate-600 hover:text-slate-900">SwiftShip Logistics &mdash; full-stack</a></li>
-          <li><a href="https://tailoredshapes.github.io/meshql/examples/egg-economy" class="text-slate-600 hover:text-slate-900">Egg Economy &mdash; event-sourced</a></li>
-          <li><a href="https://tailoredshapes.github.io/meshql/examples/egg-economy-sap" class="text-slate-600 hover:text-slate-900">Egg Economy SAP</a></li>
-          <li><a href="https://tailoredshapes.github.io/meshql/examples/egg-economy-salesforce" class="text-slate-600 hover:text-slate-900">Egg Economy Salesforce</a></li>
-          <li><a href="https://tailoredshapes.github.io/meshql/examples/legacy" class="text-slate-600 hover:text-slate-900">Springfield Electric</a></li>
-          <li><a href="https://tailoredshapes.github.io/meshql/examples/power-plants" class="text-slate-600 hover:text-slate-900">Global Power Plants</a></li>
-          <li><a href="https://tailoredshapes.github.io/meshql/examples/enterprise" class="text-slate-600 hover:text-slate-900">The Enterprise</a></li>
+      <div class="mt-12 border-t border-slate-100 pt-10">
+        <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-5">All examples</h3>
+        <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-3 text-sm">
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/farm" class="text-slate-500 hover:text-brand-700 transition-colors">Farm &mdash; multi-entity federation</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/events" class="text-slate-500 hover:text-brand-700 transition-colors">Events &mdash; CDC pipeline</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/logistics" class="text-slate-500 hover:text-brand-700 transition-colors">SwiftShip Logistics &mdash; full-stack</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/egg-economy" class="text-slate-500 hover:text-brand-700 transition-colors">Egg Economy &mdash; event-sourced</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/egg-economy-sap" class="text-slate-500 hover:text-brand-700 transition-colors">Egg Economy SAP</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/egg-economy-salesforce" class="text-slate-500 hover:text-brand-700 transition-colors">Egg Economy Salesforce</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/legacy" class="text-slate-500 hover:text-brand-700 transition-colors">Springfield Electric</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/power-plants" class="text-slate-500 hover:text-brand-700 transition-colors">Global Power Plants</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/enterprise" class="text-slate-500 hover:text-brand-700 transition-colors">The Enterprise</a></li>
         </ul>
       </div>
     </div>
   </section>
 
   <!-- The Toolkit -->
-  <section class="bg-slate-50">
-    <div class="max-w-5xl mx-auto px-6 py-20">
-      <h2 class="text-2xl md:text-3xl font-bold">The toolkit</h2>
-      <p class="mt-4 text-slate-600 max-w-2xl">
-        Open source under BSL 1.1. Free for non-production use.
-      </p>
-      <div class="mt-12 grid md:grid-cols-3 gap-8">
-        <div class="bg-white border border-slate-200 rounded-lg p-6">
+  <section class="bg-slate-50 border-y border-slate-200/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
+      <div class="max-w-2xl">
+        <p class="text-sm font-medium tracking-widest uppercase text-brand-600 mb-3">Open Source</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Technology</h2>
+        <p class="mt-4 text-slate-500 text-lg leading-relaxed">
+          Available under BSL 1.1. Free for non-production use.
+        </p>
+      </div>
+      <div class="mt-14 grid md:grid-cols-3 gap-6">
+        <div class="bg-white border border-slate-200/80 rounded-xl p-7 shadow-sm card-lift">
           <h3 class="font-semibold text-lg">MeshQL</h3>
-          <p class="text-xs text-slate-400 mt-1">Java 21 &middot; Jetty 12 &middot; GraphQL + REST</p>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            Build data APIs from JSON schemas and GraphQL types. Supports PostgreSQL, MongoDB, SQLite. Federation via internal and external resolvers.
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">Java 21</span>
+            <span class="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">Jetty 12</span>
+            <span class="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">GraphQL + REST</span>
+          </div>
+          <p class="mt-4 text-slate-500 text-sm leading-relaxed">
+            Data API framework. Define JSON schemas and GraphQL types, get REST and GraphQL endpoints with federation, temporal queries, and multi-backend support.
           </p>
-          <div class="mt-4 flex gap-3 text-sm">
-            <a href="https://tailoredshapes.github.io/meshql/" class="text-slate-500 hover:text-slate-800">Docs</a>
-            <a href="https://github.com/tailoredshapes/meshql" class="text-slate-500 hover:text-slate-800">GitHub</a>
+          <div class="mt-5 pt-5 border-t border-slate-100 flex gap-4 text-sm">
+            <a href="https://tailoredshapes.github.io/meshql/" class="font-medium text-brand-600 hover:text-brand-800 transition-colors">Documentation</a>
+            <a href="https://github.com/tailoredshapes/meshql" class="font-medium text-slate-400 hover:text-slate-600 transition-colors">GitHub</a>
           </div>
         </div>
-        <div class="bg-white border border-slate-200 rounded-lg p-6">
+        <div class="bg-white border border-slate-200/80 rounded-xl p-7 shadow-sm card-lift">
           <h3 class="font-semibold text-lg">Mesher</h3>
-          <p class="text-xs text-slate-400 mt-1">CLI &middot; Code generation &middot; LLM-assisted</p>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            Point at a legacy database, describe the domain, and generate a complete MeshQL anti-corruption layer. Introspect, convert, generate, run.
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">CLI</span>
+            <span class="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">Code Generation</span>
+            <span class="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">LLM-Assisted</span>
+          </div>
+          <p class="mt-4 text-slate-500 text-sm leading-relaxed">
+            Automated anti-corruption layer generator. Introspects a legacy database, designs a clean domain model, and outputs a complete MeshQL project.
           </p>
-          <div class="mt-4 flex gap-3 text-sm">
-            <a href="https://tailoredshapes.github.io/meshql/reference/mesher" class="text-slate-500 hover:text-slate-800">Docs</a>
-            <a href="https://github.com/tailoredshapes/meshql/tree/main/mesher" class="text-slate-500 hover:text-slate-800">GitHub</a>
+          <div class="mt-5 pt-5 border-t border-slate-100 flex gap-4 text-sm">
+            <a href="https://tailoredshapes.github.io/meshql/reference/mesher" class="font-medium text-brand-600 hover:text-brand-800 transition-colors">Documentation</a>
+            <a href="https://github.com/tailoredshapes/meshql/tree/main/mesher" class="font-medium text-slate-400 hover:text-slate-600 transition-colors">GitHub</a>
           </div>
         </div>
-        <div class="bg-white border border-slate-200 rounded-lg p-6">
+        <div class="bg-white border border-slate-200/80 rounded-xl p-7 shadow-sm card-lift">
           <h3 class="font-semibold text-lg">meshobj</h3>
-          <p class="text-xs text-slate-400 mt-1">TypeScript &middot; npm</p>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            Lightweight TypeScript client for MeshQL APIs. Type-safe queries and mutations with zero dependencies.
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">TypeScript</span>
+            <span class="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">npm</span>
+          </div>
+          <p class="mt-4 text-slate-500 text-sm leading-relaxed">
+            Type-safe TypeScript client for MeshQL APIs. Zero dependencies.
           </p>
-          <div class="mt-4 flex gap-3 text-sm">
-            <a href="https://github.com/tailoredshapes/meshobj" class="text-slate-500 hover:text-slate-800">GitHub</a>
+          <div class="mt-5 pt-5 border-t border-slate-100 flex gap-4 text-sm">
+            <a href="https://github.com/tailoredshapes/meshobj" class="font-medium text-slate-400 hover:text-slate-600 transition-colors">GitHub</a>
           </div>
         </div>
       </div>
@@ -230,34 +324,86 @@
 
   <!-- Engagement Model -->
   <section class="bg-white">
-    <div class="max-w-5xl mx-auto px-6 py-20">
-      <h2 class="text-2xl md:text-3xl font-bold">How we work</h2>
-      <p class="mt-4 text-slate-600 max-w-2xl">
-        Three tiers. Start wherever makes sense.
-      </p>
-      <div class="mt-12 grid md:grid-cols-3 gap-8">
-        <div class="border border-slate-200 rounded-lg p-6">
+    <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
+      <div class="max-w-2xl">
+        <p class="text-sm font-medium tracking-widest uppercase text-brand-600 mb-3">Pricing</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Engagement model</h2>
+        <p class="mt-4 text-slate-500 text-lg leading-relaxed">
+          Three tiers, structured around where you are in the evaluation process.
+        </p>
+      </div>
+      <div class="mt-14 grid md:grid-cols-3 gap-6 items-start">
+        <div class="border border-slate-200/80 rounded-xl p-7 shadow-sm">
           <h3 class="font-semibold text-lg">Evaluate</h3>
-          <p class="text-xs text-slate-400 mt-1">Free &middot; BSL 1.1 non-production</p>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            Clone the repo, run the examples, point Mesher at your database. Everything works out of the box for evaluation and development.
+          <p class="text-sm text-slate-400 mt-1">Free &middot; Non-production</p>
+          <div class="mt-1 mb-5 h-px bg-slate-100"></div>
+          <p class="text-slate-500 text-sm leading-relaxed">
+            Full access to the framework, examples, and code generation tooling for evaluation and development use.
           </p>
+          <ul class="mt-5 space-y-2.5 text-sm text-slate-500">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 text-slate-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              BSL 1.1 license
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 text-slate-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              All examples and documentation
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 text-slate-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              Mesher code generation
+            </li>
+          </ul>
         </div>
-        <div class="border border-slate-200 rounded-lg p-6">
+        <div class="border border-slate-200/80 rounded-xl p-7 shadow-sm">
           <h3 class="font-semibold text-lg">License</h3>
-          <p class="text-xs text-slate-400 mt-1">Production use</p>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            Production use requires a commercial license. Straightforward per-service pricing. You build it, we support it.
+          <p class="text-sm text-slate-400 mt-1">Production use</p>
+          <div class="mt-1 mb-5 h-px bg-slate-100"></div>
+          <p class="text-slate-500 text-sm leading-relaxed">
+            Commercial license for production deployment. Your team builds and operates the solution with our support.
           </p>
+          <ul class="mt-5 space-y-2.5 text-sm text-slate-500">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 text-slate-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              Per-service pricing
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 text-slate-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              Technical support
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 text-slate-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              Architecture review
+            </li>
+          </ul>
         </div>
-        <div class="border border-slate-200 rounded-lg p-8 bg-slate-900 text-white">
-          <h3 class="font-semibold text-lg">Full Engagement</h3>
-          <p class="text-xs text-slate-400 mt-1">We build it &middot; License included</p>
-          <p class="mt-3 text-slate-300 text-sm leading-relaxed">
-            We build the anti-corruption layer, train your team, and hand over the code. Production license included. This is what most clients choose.
+        <div class="relative rounded-xl p-7 bg-slate-950 text-white shadow-xl shadow-slate-950/10 ring-1 ring-white/10">
+          <div class="absolute -top-3 left-7">
+            <span class="text-[11px] font-semibold tracking-wide uppercase bg-brand-600 text-white px-3 py-1 rounded-full shadow-lg shadow-brand-600/30">Recommended</span>
+          </div>
+          <h3 class="font-semibold text-lg mt-1">Full Engagement</h3>
+          <p class="text-sm text-slate-400 mt-1">Delivery + license included</p>
+          <div class="mt-1 mb-5 h-px bg-slate-800"></div>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            End-to-end delivery of the anti-corruption layer. Architecture, implementation, knowledge transfer, and production license included.
           </p>
-          <a href="mailto:tom@tailoredshapes.com" class="mt-4 inline-block text-sm font-medium text-white hover:text-slate-200">
-            Get in touch &rarr;
+          <ul class="mt-5 space-y-2.5 text-sm text-slate-400">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 text-brand-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              Everything in License
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 text-brand-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              Implementation and delivery
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 text-brand-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              Knowledge transfer to your team
+            </li>
+          </ul>
+          <a href="mailto:tom@tailoredshapes.com" class="mt-6 w-full inline-flex items-center justify-center gap-2 bg-brand-600 text-white font-medium px-5 py-2.5 rounded-lg hover:bg-brand-700 transition text-sm shadow-lg shadow-brand-600/20">
+            Get in touch
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </a>
         </div>
       </div>
@@ -265,21 +411,21 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-400">
-    <div class="max-w-5xl mx-auto px-6 py-12">
+  <footer class="bg-slate-950 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 py-14">
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div>
-          <p class="text-white font-semibold">TailoredShapes</p>
-          <p class="mt-1 text-sm">Legacy system integration consultancy</p>
+          <p class="text-white font-semibold tracking-tight text-lg">TailoredShapes</p>
+          <p class="mt-1 text-sm text-slate-500">Legacy system integration</p>
         </div>
         <div class="flex gap-6 text-sm">
-          <a href="mailto:tom@tailoredshapes.com" class="hover:text-white transition">tom@tailoredshapes.com</a>
-          <a href="https://github.com/tailoredshapes" class="hover:text-white transition">GitHub</a>
+          <a href="mailto:tom@tailoredshapes.com" class="text-slate-400 hover:text-white transition-colors">tom@tailoredshapes.com</a>
+          <a href="https://github.com/tailoredshapes" class="text-slate-400 hover:text-white transition-colors">GitHub</a>
         </div>
       </div>
-      <div class="mt-8 pt-6 border-t border-slate-800 text-xs text-slate-500">
-        <p>MeshQL is licensed under BSL 1.1. Free for non-production use.</p>
-        <p class="mt-1">&copy; 2025 TailoredShapes. All rights reserved.</p>
+      <div class="mt-10 pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-slate-600">
+        <p>&copy; 2025 TailoredShapes. All rights reserved.</p>
+        <p>MeshQL is licensed under BSL 1.1</p>
       </div>
     </div>
   </footer>
