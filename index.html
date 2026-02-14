@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TailoredShapes — Legacy System Integration</title>
+  <meta name="description" content="Anti-corruption layers for legacy systems. Prototype in a day, production in a sprint.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwindcss.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="font-sans text-slate-800 antialiased">
+
+  <!-- Hero -->
+  <section class="bg-slate-900 text-white">
+    <div class="max-w-5xl mx-auto px-6 py-24 md:py-32">
+      <h1 class="text-3xl md:text-5xl font-bold leading-tight max-w-3xl">
+        Your legacy systems work.<br>They just don't talk to each other.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-slate-300 max-w-2xl">
+        We build anti-corruption layers that give your legacy databases a modern API — without touching the legacy code. Prototype in a day, production in a sprint.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="#case-studies" class="inline-block bg-white text-slate-900 font-semibold px-6 py-3 rounded-lg hover:bg-slate-100 transition">
+          See the evidence
+        </a>
+        <a href="mailto:tom@tailoredshapes.com" class="inline-block border border-slate-400 text-slate-200 font-semibold px-6 py-3 rounded-lg hover:border-white hover:text-white transition">
+          Talk to us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="bg-white">
+    <div class="max-w-5xl mx-auto px-6 py-20">
+      <h2 class="text-2xl md:text-3xl font-bold">The problem is always the same</h2>
+      <p class="mt-4 text-slate-600 max-w-2xl">
+        The data you need is locked behind systems nobody wants to rewrite.
+      </p>
+      <div class="mt-12 grid md:grid-cols-3 gap-8">
+        <div class="border border-slate-200 rounded-lg p-6">
+          <h3 class="font-semibold text-lg">SAP won't die</h3>
+          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+            Z-tables with YYYYMMDD date strings. BAPI calls that return 47 fields you don't need. Nobody's rewriting it, and the vendor contract runs to 2031.
+          </p>
+        </div>
+        <div class="border border-slate-200 rounded-lg p-6">
+          <h3 class="font-semibold text-lg">Three databases, zero shared IDs</h3>
+          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+            One system uses SERIAL, another uses UUIDs, the third has VARCHAR(20) account codes. Joining across them means a spreadsheet and a prayer.
+          </p>
+        </div>
+        <div class="border border-slate-200 rounded-lg p-6">
+          <h3 class="font-semibold text-lg">The BI team is stuck</h3>
+          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+            Nightly ETL loads stale data into a warehouse nobody trusts. The dashboard says one thing, the source says another. Everyone blames the data.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Approach -->
+  <section class="bg-slate-50">
+    <div class="max-w-5xl mx-auto px-6 py-20">
+      <h2 class="text-2xl md:text-3xl font-bold">Anti-corruption layers, not rewrites</h2>
+      <p class="mt-4 text-slate-600 max-w-2xl">
+        We put a clean API in front of your legacy database. The legacy system keeps running untouched. Your new applications talk to the API.
+      </p>
+
+      <!-- Flow diagram -->
+      <div class="mt-12 overflow-x-auto">
+        <svg viewBox="0 0 900 100" class="w-full max-w-3xl mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <style>
+            .flow-text { font-family: Inter, system-ui, sans-serif; font-size: 11px; fill: #334155; text-anchor: middle; }
+            .flow-box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 6; }
+            .flow-box-accent { fill: #1e293b; stroke: #1e293b; stroke-width: 1.5; rx: 6; }
+            .flow-text-accent { font-family: Inter, system-ui, sans-serif; font-size: 11px; fill: #ffffff; text-anchor: middle; }
+            .flow-arrow { stroke: #94a3b8; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+          </style>
+          <defs>
+            <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+              <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+            </marker>
+          </defs>
+          <rect x="10" y="25" width="110" height="50" class="flow-box"/>
+          <text x="65" y="55" class="flow-text">Legacy DB</text>
+          <line x1="120" y1="50" x2="155" y2="50" class="flow-arrow"/>
+          <rect x="155" y="25" width="90" height="50" class="flow-box"/>
+          <text x="200" y="55" class="flow-text">CDC</text>
+          <line x1="245" y1="50" x2="280" y2="50" class="flow-arrow"/>
+          <rect x="280" y="25" width="90" height="50" class="flow-box"/>
+          <text x="325" y="55" class="flow-text">Kafka</text>
+          <line x1="370" y1="50" x2="405" y2="50" class="flow-arrow"/>
+          <rect x="405" y="25" width="120" height="50" class="flow-box"/>
+          <text x="465" y="55" class="flow-text">Transformers</text>
+          <line x1="525" y1="50" x2="560" y2="50" class="flow-arrow"/>
+          <rect x="560" y="25" width="130" height="50" class="flow-box-accent"/>
+          <text x="625" y="55" class="flow-text-accent">MeshQL API</text>
+          <line x1="690" y1="50" x2="725" y2="50" class="flow-arrow"/>
+          <rect x="725" y="25" width="120" height="50" class="flow-box"/>
+          <text x="785" y="55" class="flow-text">Your Apps</text>
+        </svg>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="font-semibold">Legacy untouched</h3>
+          <p class="mt-2 text-slate-600 text-sm leading-relaxed">
+            We read from the transaction log. No triggers, no stored procedures, no changes to the source system.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-semibold">You own the code</h3>
+          <p class="mt-2 text-slate-600 text-sm leading-relaxed">
+            Everything we build is yours. Standard Java, standard infrastructure. No proprietary runtime, no vendor lock-in.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-semibold">Prototype in a day</h3>
+          <p class="mt-2 text-slate-600 text-sm leading-relaxed">
+            Point our CLI at your database, describe the domain, and get a working API. Refine from there.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section id="case-studies" class="bg-white">
+    <div class="max-w-5xl mx-auto px-6 py-20">
+      <h2 class="text-2xl md:text-3xl font-bold">Case studies</h2>
+      <p class="mt-4 text-slate-600 max-w-2xl">
+        Every example ships with working code, Docker Compose, and tests.
+      </p>
+
+      <!-- Featured -->
+      <div class="mt-12 grid md:grid-cols-3 gap-8">
+        <a href="https://tailoredshapes.github.io/meshql/examples/legacy" class="block border border-slate-200 rounded-lg p-6 hover:border-slate-400 transition group">
+          <h3 class="font-semibold text-lg group-hover:text-slate-900">Springfield Electric</h3>
+          <p class="mt-2 text-slate-500 text-sm">Anti-corruption layer over legacy PostgreSQL. CDC pipeline, internal resolvers, three frontend apps.</p>
+          <span class="mt-4 inline-block text-sm font-medium text-slate-500 group-hover:text-slate-700">Read case study &rarr;</span>
+        </a>
+        <a href="https://tailoredshapes.github.io/meshql/examples/power-plants" class="block border border-slate-200 rounded-lg p-6 hover:border-slate-400 transition group">
+          <h3 class="font-semibold text-lg group-hover:text-slate-900">Global Power Plants</h3>
+          <p class="mt-2 text-slate-500 text-sm">34,936 plants across 167 countries. Mesher code-gen from a legacy energy database.</p>
+          <span class="mt-4 inline-block text-sm font-medium text-slate-500 group-hover:text-slate-700">Read case study &rarr;</span>
+        </a>
+        <a href="https://tailoredshapes.github.io/meshql/examples/enterprise" class="block border border-slate-200 rounded-lg p-6 hover:border-slate-400 transition group">
+          <h3 class="font-semibold text-lg group-hover:text-slate-900">The Enterprise</h3>
+          <p class="mt-2 text-slate-500 text-sm">Two legacy databases, one unified API. The capstone example showing full MeshQL federation.</p>
+          <span class="mt-4 inline-block text-sm font-medium text-slate-500 group-hover:text-slate-700">Read case study &rarr;</span>
+        </a>
+      </div>
+
+      <!-- All examples -->
+      <div class="mt-10 border-t border-slate-100 pt-8">
+        <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wide">All examples</h3>
+        <ul class="mt-4 grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-2 text-sm">
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/farm" class="text-slate-600 hover:text-slate-900">Farm &mdash; multi-entity federation</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/events" class="text-slate-600 hover:text-slate-900">Events &mdash; CDC pipeline</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/logistics" class="text-slate-600 hover:text-slate-900">SwiftShip Logistics &mdash; full-stack</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/egg-economy" class="text-slate-600 hover:text-slate-900">Egg Economy &mdash; event-sourced</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/egg-economy-sap" class="text-slate-600 hover:text-slate-900">Egg Economy SAP</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/egg-economy-salesforce" class="text-slate-600 hover:text-slate-900">Egg Economy Salesforce</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/legacy" class="text-slate-600 hover:text-slate-900">Springfield Electric</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/power-plants" class="text-slate-600 hover:text-slate-900">Global Power Plants</a></li>
+          <li><a href="https://tailoredshapes.github.io/meshql/examples/enterprise" class="text-slate-600 hover:text-slate-900">The Enterprise</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Toolkit -->
+  <section class="bg-slate-50">
+    <div class="max-w-5xl mx-auto px-6 py-20">
+      <h2 class="text-2xl md:text-3xl font-bold">The toolkit</h2>
+      <p class="mt-4 text-slate-600 max-w-2xl">
+        Open source under BSL 1.1. Free for non-production use.
+      </p>
+      <div class="mt-12 grid md:grid-cols-3 gap-8">
+        <div class="bg-white border border-slate-200 rounded-lg p-6">
+          <h3 class="font-semibold text-lg">MeshQL</h3>
+          <p class="text-xs text-slate-400 mt-1">Java 21 &middot; Jetty 12 &middot; GraphQL + REST</p>
+          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+            Build data APIs from JSON schemas and GraphQL types. Supports PostgreSQL, MongoDB, SQLite. Federation via internal and external resolvers.
+          </p>
+          <div class="mt-4 flex gap-3 text-sm">
+            <a href="https://tailoredshapes.github.io/meshql/" class="text-slate-500 hover:text-slate-800">Docs</a>
+            <a href="https://github.com/tailoredshapes/meshql" class="text-slate-500 hover:text-slate-800">GitHub</a>
+          </div>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-lg p-6">
+          <h3 class="font-semibold text-lg">Mesher</h3>
+          <p class="text-xs text-slate-400 mt-1">CLI &middot; Code generation &middot; LLM-assisted</p>
+          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+            Point at a legacy database, describe the domain, and generate a complete MeshQL anti-corruption layer. Introspect, convert, generate, run.
+          </p>
+          <div class="mt-4 flex gap-3 text-sm">
+            <a href="https://tailoredshapes.github.io/meshql/reference/mesher" class="text-slate-500 hover:text-slate-800">Docs</a>
+            <a href="https://github.com/tailoredshapes/meshql/tree/main/mesher" class="text-slate-500 hover:text-slate-800">GitHub</a>
+          </div>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-lg p-6">
+          <h3 class="font-semibold text-lg">meshobj</h3>
+          <p class="text-xs text-slate-400 mt-1">TypeScript &middot; npm</p>
+          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+            Lightweight TypeScript client for MeshQL APIs. Type-safe queries and mutations with zero dependencies.
+          </p>
+          <div class="mt-4 flex gap-3 text-sm">
+            <a href="https://github.com/tailoredshapes/meshobj" class="text-slate-500 hover:text-slate-800">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engagement Model -->
+  <section class="bg-white">
+    <div class="max-w-5xl mx-auto px-6 py-20">
+      <h2 class="text-2xl md:text-3xl font-bold">How we work</h2>
+      <p class="mt-4 text-slate-600 max-w-2xl">
+        Three tiers. Start wherever makes sense.
+      </p>
+      <div class="mt-12 grid md:grid-cols-3 gap-8">
+        <div class="border border-slate-200 rounded-lg p-6">
+          <h3 class="font-semibold text-lg">Evaluate</h3>
+          <p class="text-xs text-slate-400 mt-1">Free &middot; BSL 1.1 non-production</p>
+          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+            Clone the repo, run the examples, point Mesher at your database. Everything works out of the box for evaluation and development.
+          </p>
+        </div>
+        <div class="border border-slate-200 rounded-lg p-6">
+          <h3 class="font-semibold text-lg">License</h3>
+          <p class="text-xs text-slate-400 mt-1">Production use</p>
+          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+            Production use requires a commercial license. Straightforward per-service pricing. You build it, we support it.
+          </p>
+        </div>
+        <div class="border border-slate-200 rounded-lg p-8 bg-slate-900 text-white">
+          <h3 class="font-semibold text-lg">Full Engagement</h3>
+          <p class="text-xs text-slate-400 mt-1">We build it &middot; License included</p>
+          <p class="mt-3 text-slate-300 text-sm leading-relaxed">
+            We build the anti-corruption layer, train your team, and hand over the code. Production license included. This is what most clients choose.
+          </p>
+          <a href="mailto:tom@tailoredshapes.com" class="mt-4 inline-block text-sm font-medium text-white hover:text-slate-200">
+            Get in touch &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400">
+    <div class="max-w-5xl mx-auto px-6 py-12">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <p class="text-white font-semibold">TailoredShapes</p>
+          <p class="mt-1 text-sm">Legacy system integration consultancy</p>
+        </div>
+        <div class="flex gap-6 text-sm">
+          <a href="mailto:tom@tailoredshapes.com" class="hover:text-white transition">tom@tailoredshapes.com</a>
+          <a href="https://github.com/tailoredshapes" class="hover:text-white transition">GitHub</a>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-slate-800 text-xs text-slate-500">
+        <p>MeshQL is licensed under BSL 1.1. Free for non-production use.</p>
+        <p class="mt-1">&copy; 2025 TailoredShapes. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
