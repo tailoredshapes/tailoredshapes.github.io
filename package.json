@@ -1,0 +1,17 @@
+{
+  "name": "tailoredshapes.github.io",
+  "version": "1.0.0",
+  "description": "Landing page for TailoredShapes — legacy system integration consultancy.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i src/input.css -o styles.css --minify",
+    "dev": "npx @tailwindcss/cli -i src/input.css -o styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  }
+}
