@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TailoredShapes — Legacy System Integration</title>
-  <meta name="description" content="Modern APIs for legacy databases. No rewrites. No migration risk.">
+  <title>TailoredShapes</title>
+  <meta name="description" content="Software consultancy. We work with the systems you have to build the systems you need.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -37,7 +37,6 @@
     }
   </script>
   <style>
-    /* Film grain overlay */
     .grain::after {
       content: '';
       position: absolute;
@@ -58,15 +57,17 @@
   <!-- Hero -->
   <section class="relative bg-warm-950 text-warm-100 grain grain-heavy">
     <div class="relative max-w-3xl mx-auto px-6 py-32 md:py-44">
+      <p class="text-sm font-medium tracking-tight text-warm-500 mb-8">TailoredShapes</p>
       <h1 class="text-3xl md:text-5xl font-semibold leading-[1.15] tracking-tight">
-        Modern APIs for legacy databases.
+        The right tool for the job.<br>
+        <span class="text-warm-400">Every time.</span>
       </h1>
-      <p class="mt-6 text-base md:text-lg text-warm-400 max-w-lg leading-relaxed">
-        Anti-corruption layers that surface clean data from systems you can't replace. Zero changes to the source.
+      <p class="mt-8 text-base md:text-lg text-warm-400 max-w-lg leading-relaxed">
+        Your legacy systems aren't the problem. They're the foundation. We build the integration layer that lets them talk to everything else.
       </p>
       <div class="mt-12 flex flex-wrap gap-6 text-sm">
-        <a href="#case-studies" class="text-warm-200 border-b border-warm-600 pb-0.5 hover:border-warm-300 transition-colors">
-          Case studies
+        <a href="#work" class="text-warm-200 border-b border-warm-600 pb-0.5 hover:border-warm-300 transition-colors">
+          Our work
         </a>
         <a href="mailto:tom@tailoredshapes.com" class="text-warm-400 border-b border-warm-700 pb-0.5 hover:text-warm-200 hover:border-warm-500 transition-colors">
           Contact
@@ -75,32 +76,37 @@
     </div>
   </section>
 
-  <!-- The Problem -->
+  <!-- Philosophy -->
   <section class="relative grain">
     <div class="relative max-w-3xl mx-auto px-6 py-24 md:py-32">
-      <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-6">The Challenge</p>
-      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Common integration challenges</h2>
-      <p class="mt-4 text-warm-500 leading-relaxed max-w-xl">
-        Critical business data locked behind systems that cannot be rewritten or replaced.
-      </p>
+      <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-6">Philosophy</p>
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Embrace the legacy</h2>
+      <div class="mt-6 space-y-4 text-warm-500 leading-relaxed max-w-xl">
+        <p>
+          Legacy systems earned that name by surviving. They run payroll, track inventory, process orders. They work. The instinct to replace them is expensive, risky, and usually wrong.
+        </p>
+        <p>
+          The real problem is never the system itself. It's the gap between what it holds and what the rest of the organisation needs from it. We close that gap.
+        </p>
+      </div>
 
       <div class="mt-16 space-y-12">
         <div class="border-l-2 border-warm-200 pl-6">
-          <h3 class="font-medium text-warm-800">Legacy ERP systems</h3>
+          <h3 class="font-medium text-warm-800">Understand what works</h3>
           <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
-            Custom tables, proprietary date formats, verbose API contracts. The vendor relationship extends for years. Replacement is not on the roadmap.
+            Before writing any code, we map what the existing systems do well and where the friction lives. The goal is integration, not replacement.
           </p>
         </div>
         <div class="border-l-2 border-warm-200 pl-6">
-          <h3 class="font-medium text-warm-800">Fragmented identity</h3>
+          <h3 class="font-medium text-warm-800">Choose the right tool</h3>
           <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
-            SERIAL keys in one system, UUIDs in another, account codes in a third. No common identifier across databases. Cross-system joins are manual.
+            Sometimes that's an anti-corruption layer with CDC and event streaming. Sometimes it's a simple adapter. Sometimes it's a conversation about what you actually need. We're not here to sell a platform.
           </p>
         </div>
         <div class="border-l-2 border-warm-200 pl-6">
-          <h3 class="font-medium text-warm-800">Stale reporting pipelines</h3>
+          <h3 class="font-medium text-warm-800">Leave you with something that lasts</h3>
           <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
-            Nightly ETL into a warehouse that diverges from the source. Conflicting numbers across dashboards. Decisions delayed by data trust issues.
+            Standard tools, standard infrastructure, complete source ownership. Nothing that requires us to stay. The best engagement is one your team can maintain alone.
           </p>
         </div>
       </div>
@@ -110,67 +116,32 @@
   <!-- Divider -->
   <div class="max-w-3xl mx-auto px-6"><hr class="border-warm-200"></div>
 
-  <!-- The Approach -->
+  <!-- What we do -->
   <section class="relative grain">
     <div class="relative max-w-3xl mx-auto px-6 py-24 md:py-32">
-      <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-6">Approach</p>
-      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Anti-corruption layers, not rewrites</h2>
+      <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-6">Services</p>
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">What we do</h2>
       <p class="mt-4 text-warm-500 leading-relaxed max-w-xl">
-        A clean API boundary in front of each legacy database. Source systems remain untouched. New applications consume the unified API.
+        We specialise in making existing systems more useful, not in replacing them.
       </p>
 
-      <!-- Flow diagram -->
-      <div class="mt-14 overflow-x-auto">
-        <svg viewBox="0 0 900 90" class="w-full max-w-2xl" xmlns="http://www.w3.org/2000/svg">
-          <style>
-            .fl { font-family: Inter, system-ui, sans-serif; font-size: 10.5px; font-weight: 500; fill: #78716c; text-anchor: middle; letter-spacing: 0.02em; }
-            .fl-a { font-family: Inter, system-ui, sans-serif; font-size: 10.5px; font-weight: 600; fill: #1c1917; text-anchor: middle; letter-spacing: 0.02em; }
-            .fb { fill: none; stroke: #d6d3d1; stroke-width: 1; rx: 4; }
-            .fb-a { fill: #1c1917; stroke: #1c1917; stroke-width: 1; rx: 4; }
-            .fa { stroke: #a8a29e; stroke-width: 1; fill: none; marker-end: url(#ah); }
-          </style>
-          <defs>
-            <marker id="ah" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
-              <polygon points="0 0, 6 2.5, 0 5" fill="#a8a29e"/>
-            </marker>
-          </defs>
-          <rect x="10" y="22" width="105" height="46" class="fb"/>
-          <text x="62" y="50" class="fl">Legacy DB</text>
-          <line x1="115" y1="45" x2="150" y2="45" class="fa"/>
-          <rect x="150" y="22" width="85" height="46" class="fb"/>
-          <text x="192" y="50" class="fl">CDC</text>
-          <line x1="235" y1="45" x2="270" y2="45" class="fa"/>
-          <rect x="270" y="22" width="85" height="46" class="fb"/>
-          <text x="312" y="50" class="fl">Kafka</text>
-          <line x1="355" y1="45" x2="395" y2="45" class="fa"/>
-          <rect x="395" y="22" width="115" height="46" class="fb"/>
-          <text x="452" y="50" class="fl">Transformers</text>
-          <line x1="510" y1="45" x2="550" y2="45" class="fa"/>
-          <rect x="550" y="22" width="125" height="46" class="fb-a"/>
-          <text x="612" y="50" style="font-family:Inter,system-ui,sans-serif;font-size:10.5px;font-weight:600;fill:#fafaf9;text-anchor:middle;letter-spacing:0.02em;">MeshQL API</text>
-          <line x1="675" y1="45" x2="715" y2="45" class="fa"/>
-          <rect x="715" y="22" width="115" height="46" class="fb"/>
-          <text x="772" y="50" class="fl">Your Apps</text>
-        </svg>
-      </div>
-
-      <div class="mt-16 grid md:grid-cols-3 gap-x-12 gap-y-10">
-        <div>
-          <h3 class="text-sm font-medium text-warm-800">Zero source modification</h3>
-          <p class="mt-2 text-warm-500 text-sm leading-relaxed">
-            Data captured from the transaction log via CDC. No triggers, no stored procedures, no changes to the source system.
+      <div class="mt-16 space-y-12">
+        <div class="border-l-2 border-warm-200 pl-6">
+          <h3 class="font-medium text-warm-800">Legacy system integration</h3>
+          <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
+            Clean API boundaries in front of databases and systems that can't change. CDC pipelines, anti-corruption layers, event-driven architectures. The source system stays untouched.
           </p>
         </div>
-        <div>
-          <h3 class="text-sm font-medium text-warm-800">Full code ownership</h3>
-          <p class="mt-2 text-warm-500 text-sm leading-relaxed">
-            Standard Java 21 on standard infrastructure. No proprietary runtime. Complete source code delivered to your team.
+        <div class="border-l-2 border-warm-200 pl-6">
+          <h3 class="font-medium text-warm-800">Data unification</h3>
+          <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
+            Federated APIs across multiple backends. SERIAL keys, UUIDs, account codes&mdash;unified behind a single query interface without migrating anything.
           </p>
         </div>
-        <div>
-          <h3 class="text-sm font-medium text-warm-800">Rapid prototyping</h3>
-          <p class="mt-2 text-warm-500 text-sm leading-relaxed">
-            Automated introspection and code generation produces a working API from an existing schema in hours.
+        <div class="border-l-2 border-warm-200 pl-6">
+          <h3 class="font-medium text-warm-800">Technical due diligence</h3>
+          <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
+            Honest assessment of what you have, what you need, and the shortest path between them. Not every engagement ends in code.
           </p>
         </div>
       </div>
@@ -181,55 +152,65 @@
   <div class="max-w-3xl mx-auto px-6"><hr class="border-warm-200"></div>
 
   <!-- Case Studies -->
-  <section id="case-studies" class="relative grain">
+  <section id="work" class="relative grain">
     <div class="relative max-w-3xl mx-auto px-6 py-24 md:py-32">
-      <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-6">Evidence</p>
+      <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-6">Work</p>
       <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Case studies</h2>
       <p class="mt-4 text-warm-500 leading-relaxed max-w-xl">
-        Each includes working source, Docker Compose configuration, and automated tests.
+        Each includes working source, infrastructure configuration, and automated tests.
       </p>
 
-      <!-- Featured -->
       <div class="mt-14 space-y-8">
         <a href="https://tailoredshapes.github.io/meshql/examples/legacy" class="block group">
           <div class="flex items-baseline justify-between gap-4">
             <h3 class="font-medium text-warm-800 group-hover:text-warm-950 transition-colors">Springfield Electric</h3>
-            <span class="text-xs text-warm-400 hidden sm:inline">CDC + PostgreSQL</span>
+            <span class="text-xs text-warm-400 hidden sm:inline">Anti-corruption layer</span>
           </div>
-          <p class="mt-1.5 text-warm-500 text-sm leading-relaxed">Anti-corruption layer over legacy PostgreSQL. CDC pipeline, internal resolvers, three frontend applications.</p>
+          <p class="mt-1.5 text-warm-500 text-sm leading-relaxed">Legacy PostgreSQL with SCREAMING_SNAKE columns and VARCHAR dates. CDC pipeline surfaces clean domain entities. Three frontend apps, zero changes to the source.</p>
           <div class="mt-2 h-px bg-warm-150 group-hover:bg-warm-300 transition-colors"></div>
         </a>
         <a href="https://tailoredshapes.github.io/meshql/examples/power-plants" class="block group">
           <div class="flex items-baseline justify-between gap-4">
             <h3 class="font-medium text-warm-800 group-hover:text-warm-950 transition-colors">Global Power Plants</h3>
-            <span class="text-xs text-warm-400 hidden sm:inline">Code Generation</span>
+            <span class="text-xs text-warm-400 hidden sm:inline">Automated code generation</span>
           </div>
-          <p class="mt-1.5 text-warm-500 text-sm leading-relaxed">34,936 plants across 167 countries. Automated code generation from a legacy energy database.</p>
+          <p class="mt-1.5 text-warm-500 text-sm leading-relaxed">34,936 plants across 167 countries. Point the CLI at the legacy schema, describe the domain, get a working API in minutes.</p>
           <div class="mt-2 h-px bg-warm-150 group-hover:bg-warm-300 transition-colors"></div>
         </a>
         <a href="https://tailoredshapes.github.io/meshql/examples/enterprise" class="block group">
           <div class="flex items-baseline justify-between gap-4">
             <h3 class="font-medium text-warm-800 group-hover:text-warm-950 transition-colors">The Enterprise</h3>
-            <span class="text-xs text-warm-400 hidden sm:inline">Federation</span>
+            <span class="text-xs text-warm-400 hidden sm:inline">Multi-system federation</span>
           </div>
-          <p class="mt-1.5 text-warm-500 text-sm leading-relaxed">Two legacy databases unified behind a single API. Full federation across 13 services.</p>
+          <p class="mt-1.5 text-warm-500 text-sm leading-relaxed">Two legacy databases&mdash;SAP ERP and distribution PostgreSQL&mdash;unified behind a single federated API. 13 services, one <code class="text-warm-600">docker compose up</code>.</p>
+          <div class="mt-2 h-px bg-warm-150 group-hover:bg-warm-300 transition-colors"></div>
+        </a>
+        <a href="https://tailoredshapes.github.io/meshql/examples/logistics" class="block group">
+          <div class="flex items-baseline justify-between gap-4">
+            <h3 class="font-medium text-warm-800 group-hover:text-warm-950 transition-colors">SwiftShip Logistics</h3>
+            <span class="text-xs text-warm-400 hidden sm:inline">Full-stack platform</span>
+          </div>
+          <p class="mt-1.5 text-warm-500 text-sm leading-relaxed">Three frontend apps, four entities, eight federation resolvers, Docker and Kubernetes manifests. Built in under 30 minutes.</p>
+          <div class="mt-2 h-px bg-warm-150 group-hover:bg-warm-300 transition-colors"></div>
+        </a>
+        <a href="https://tailoredshapes.github.io/meshql/examples/egg-economy" class="block group">
+          <div class="flex items-baseline justify-between gap-4">
+            <h3 class="font-medium text-warm-800 group-hover:text-warm-950 transition-colors">National Egg Economy</h3>
+            <span class="text-xs text-warm-400 hidden sm:inline">Event sourcing + CDC</span>
+          </div>
+          <p class="mt-1.5 text-warm-500 text-sm leading-relaxed">13 entities, three databases, materialized projections, and a Debezium CDC pipeline. Three frontend apps from three different teams.</p>
           <div class="mt-2 h-px bg-warm-150 group-hover:bg-warm-300 transition-colors"></div>
         </a>
       </div>
 
-      <!-- All examples -->
+      <!-- More examples -->
       <div class="mt-14">
-        <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-5">All examples</p>
+        <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-5">More examples</p>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-2.5 text-sm">
           <a href="https://tailoredshapes.github.io/meshql/examples/farm" class="text-warm-500 hover:text-warm-800 transition-colors">Farm</a>
           <a href="https://tailoredshapes.github.io/meshql/examples/events" class="text-warm-500 hover:text-warm-800 transition-colors">Events</a>
-          <a href="https://tailoredshapes.github.io/meshql/examples/logistics" class="text-warm-500 hover:text-warm-800 transition-colors">SwiftShip Logistics</a>
-          <a href="https://tailoredshapes.github.io/meshql/examples/egg-economy" class="text-warm-500 hover:text-warm-800 transition-colors">Egg Economy</a>
           <a href="https://tailoredshapes.github.io/meshql/examples/egg-economy-sap" class="text-warm-500 hover:text-warm-800 transition-colors">Egg Economy SAP</a>
           <a href="https://tailoredshapes.github.io/meshql/examples/egg-economy-salesforce" class="text-warm-500 hover:text-warm-800 transition-colors">Egg Economy Salesforce</a>
-          <a href="https://tailoredshapes.github.io/meshql/examples/legacy" class="text-warm-500 hover:text-warm-800 transition-colors">Springfield Electric</a>
-          <a href="https://tailoredshapes.github.io/meshql/examples/power-plants" class="text-warm-500 hover:text-warm-800 transition-colors">Global Power Plants</a>
-          <a href="https://tailoredshapes.github.io/meshql/examples/enterprise" class="text-warm-500 hover:text-warm-800 transition-colors">The Enterprise</a>
         </div>
       </div>
     </div>
@@ -238,23 +219,23 @@
   <!-- Divider -->
   <div class="max-w-3xl mx-auto px-6"><hr class="border-warm-200"></div>
 
-  <!-- The Toolkit -->
+  <!-- Toolkit -->
   <section class="relative grain">
     <div class="relative max-w-3xl mx-auto px-6 py-24 md:py-32">
-      <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-6">Technology</p>
-      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">The toolkit</h2>
+      <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-6">Open Source</p>
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Tools we build and use</h2>
       <p class="mt-4 text-warm-500 leading-relaxed max-w-xl">
-        Available under BSL 1.1. Free for non-production use.
+        We build tools when the right one doesn't exist. They're available under BSL 1.1&mdash;free for non-production use, commercial license for production.
       </p>
 
       <div class="mt-14 space-y-12">
         <div>
           <div class="flex items-baseline gap-4">
             <h3 class="font-medium text-warm-800">MeshQL</h3>
-            <span class="text-xs text-warm-400">Java 21 &middot; Jetty 12 &middot; GraphQL + REST</span>
+            <span class="text-xs text-warm-400">Java 21 &middot; GraphQL + REST</span>
           </div>
           <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
-            Data API framework. Define JSON schemas and GraphQL types, get REST and GraphQL endpoints with federation, temporal queries, and multi-backend support.
+            Data API framework for building federated services from schema definitions. Supports PostgreSQL, MongoDB, and SQLite. Temporal queries, multi-backend federation, full CRUD.
           </p>
           <div class="mt-3 flex gap-4 text-sm">
             <a href="https://tailoredshapes.github.io/meshql/" class="text-warm-500 border-b border-warm-300 pb-px hover:text-warm-800 hover:border-warm-500 transition-colors">Documentation</a>
@@ -264,10 +245,10 @@
         <div>
           <div class="flex items-baseline gap-4">
             <h3 class="font-medium text-warm-800">Mesher</h3>
-            <span class="text-xs text-warm-400">CLI &middot; Code generation &middot; LLM-assisted</span>
+            <span class="text-xs text-warm-400">CLI &middot; Code generation</span>
           </div>
           <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
-            Automated anti-corruption layer generator. Introspects a legacy database, designs a clean domain model, and outputs a complete MeshQL project.
+            Points at a legacy database, introspects the schema, and generates a complete anti-corruption layer project. The fastest way to get a working integration from an existing system.
           </p>
           <div class="mt-3 flex gap-4 text-sm">
             <a href="https://tailoredshapes.github.io/meshql/reference/mesher" class="text-warm-500 border-b border-warm-300 pb-px hover:text-warm-800 hover:border-warm-500 transition-colors">Documentation</a>
@@ -277,10 +258,10 @@
         <div>
           <div class="flex items-baseline gap-4">
             <h3 class="font-medium text-warm-800">meshobj</h3>
-            <span class="text-xs text-warm-400">TypeScript &middot; npm</span>
+            <span class="text-xs text-warm-400">TypeScript</span>
           </div>
           <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
-            Type-safe TypeScript client for MeshQL APIs. Zero dependencies.
+            Type-safe client for MeshQL APIs. Zero dependencies.
           </p>
           <div class="mt-3 flex gap-4 text-sm">
             <a href="https://github.com/tailoredshapes/meshobj" class="text-warm-400 border-b border-warm-200 pb-px hover:text-warm-700 hover:border-warm-400 transition-colors">Source</a>
@@ -293,45 +274,39 @@
   <!-- Divider -->
   <div class="max-w-3xl mx-auto px-6"><hr class="border-warm-200"></div>
 
-  <!-- Engagement Model -->
+  <!-- Engagement -->
   <section class="relative grain">
     <div class="relative max-w-3xl mx-auto px-6 py-24 md:py-32">
-      <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-6">Engagement</p>
-      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">How we work</h2>
-      <p class="mt-4 text-warm-500 leading-relaxed max-w-xl">
-        Three tiers, structured around where you are in the evaluation process.
-      </p>
+      <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-6">Working Together</p>
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">How we engage</h2>
 
       <div class="mt-14 space-y-12">
         <div class="grid md:grid-cols-[140px_1fr] gap-2 md:gap-8">
           <div>
-            <h3 class="font-medium text-warm-800">Evaluate</h3>
-            <p class="text-xs text-warm-400 mt-0.5">Free</p>
+            <h3 class="font-medium text-warm-800">Assessment</h3>
           </div>
           <p class="text-warm-500 text-sm leading-relaxed">
-            Full access to the framework, examples, and code generation tooling under BSL 1.1 for evaluation and development use.
+            We look at what you have, map the integration points, and tell you what we think. Sometimes the answer is that you don't need us.
           </p>
         </div>
         <div class="grid md:grid-cols-[140px_1fr] gap-2 md:gap-8">
           <div>
-            <h3 class="font-medium text-warm-800">License</h3>
-            <p class="text-xs text-warm-400 mt-0.5">Production use</p>
+            <h3 class="font-medium text-warm-800">Build</h3>
           </div>
           <p class="text-warm-500 text-sm leading-relaxed">
-            Commercial license for production deployment. Per-service pricing. Your team builds and operates the solution with our support.
+            Architecture, implementation, and delivery. We build the integration layer, test it against your systems, and hand over the source. Your team operates it.
           </p>
         </div>
         <div class="grid md:grid-cols-[140px_1fr] gap-2 md:gap-8">
           <div>
-            <h3 class="font-medium text-warm-800">Full engagement</h3>
-            <p class="text-xs text-warm-400 mt-0.5">Delivery + license</p>
+            <h3 class="font-medium text-warm-800">Support</h3>
           </div>
           <div>
             <p class="text-warm-500 text-sm leading-relaxed">
-              End-to-end delivery of the anti-corruption layer. Architecture, implementation, knowledge transfer, and production license included.
+              Production support and knowledge transfer. We stay as long as you need, then get out of the way.
             </p>
-            <a href="mailto:tom@tailoredshapes.com" class="inline-block mt-3 text-sm text-warm-600 border-b border-warm-400 pb-px hover:text-warm-900 hover:border-warm-600 transition-colors">
-              Get in touch
+            <a href="mailto:tom@tailoredshapes.com" class="inline-block mt-4 text-sm text-warm-600 border-b border-warm-400 pb-px hover:text-warm-900 hover:border-warm-600 transition-colors">
+              Start a conversation
             </a>
           </div>
         </div>
@@ -345,16 +320,14 @@
       <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-6">
         <div>
           <p class="text-warm-100 font-medium tracking-tight">TailoredShapes</p>
-          <p class="mt-1 text-sm text-warm-600">Legacy system integration</p>
         </div>
         <div class="flex gap-6 text-sm">
           <a href="mailto:tom@tailoredshapes.com" class="text-warm-500 hover:text-warm-200 transition-colors">tom@tailoredshapes.com</a>
           <a href="https://github.com/tailoredshapes" class="text-warm-500 hover:text-warm-200 transition-colors">GitHub</a>
         </div>
       </div>
-      <div class="mt-12 pt-8 border-t border-warm-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-warm-700">
+      <div class="mt-12 pt-8 border-t border-warm-800 text-xs text-warm-700">
         <p>&copy; 2025 TailoredShapes</p>
-        <p>BSL 1.1</p>
       </div>
     </div>
   </footer>
