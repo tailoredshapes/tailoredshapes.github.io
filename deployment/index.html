@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No Server Required &mdash; TailoredShapes</title>
+  <meta name="description" content="A 13-entity federated API with event sourcing on AWS Lambda + EFS. No database server, no cluster, no ops team. 3.8MB binary, 57ms cold start.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="../styles.css" rel="stylesheet">
+</head>
+<body class="font-sans text-warm-800 antialiased bg-warm-50">
+
+  <!-- Header -->
+  <div class="relative grain grain-heavy bg-warm-950">
+    <div class="relative max-w-3xl mx-auto px-6 py-8">
+      <a href="../" class="text-sm text-warm-500 hover:text-warm-200 transition-colors">&larr; TailoredShapes</a>
+    </div>
+  </div>
+
+  <!-- Article -->
+  <article class="relative grain">
+    <div class="relative max-w-3xl mx-auto px-6 py-24 md:py-32">
+      <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-6">Perspective</p>
+      <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">No server required</h1>
+
+      <div class="mt-8 space-y-6 text-warm-500 leading-relaxed max-w-xl">
+
+        <p>
+          The default assumption for production APIs is a database server, a container orchestrator, and a team to operate them. For many workloads this is the right answer. But for many others, it's an expensive one that goes unquestioned.
+        </p>
+
+        <p>
+          We deployed a 13-entity federated API with event sourcing to AWS Lambda. No database server. No Kubernetes. No container registry. The entire system is a 3.8MB binary that cold-starts in 57 milliseconds, writes to a file system, and costs fractions of a cent per thousand requests.
+        </p>
+
+        <h2 class="text-lg font-semibold text-warm-800 mt-12">The architecture</h2>
+
+        <p>
+          The stack is three components. A Rust binary compiled for ARM64, an EFS file system mounted into the Lambda, and an API Gateway routing requests to the function. The binary contains 13 REST endpoints for writes, 13 GraphQL endpoints for reads, and 19 federation resolvers that join across entities.
+        </p>
+
+        <p>
+          The storage layer is <a href="https://github.com/tailoredshapes/merkql" class="text-warm-600 border-b border-warm-400 pb-px hover:text-warm-900 hover:border-warm-600 transition-colors">merkql</a>, an embedded event log with Kafka-compatible semantics&mdash;topics, partitions, consumer groups, append-only writes&mdash;backed by files instead of a broker cluster. Every write is content-addressed by SHA-256 and verifiable against a merkle tree. The event log supports temporal queries: read the state of any entity at any point in time.
+        </p>
+
+        <h2 class="text-lg font-semibold text-warm-800 mt-12">What we measured</h2>
+
+        <p>
+          We ran four test scenarios against the deployed API: warm single-user CRUD, federated GraphQL queries, concurrent load with 10 users, and write contention with 5 concurrent writers to the same entity type.
+        </p>
+
+      </div>
+
+      <!-- Table 1: Warm performance -->
+      <div class="mt-10 max-w-lg">
+        <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-4">Warm latencies (single user)</p>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-warm-200 text-left text-warm-400">
+              <th class="pb-3 font-medium">Operation</th>
+              <th class="pb-3 font-medium">p50</th>
+              <th class="pb-3 font-medium">p90</th>
+              <th class="pb-3 font-medium">p95</th>
+            </tr>
+          </thead>
+          <tbody class="text-warm-600">
+            <tr class="border-b border-warm-100">
+              <td class="py-3">REST create</td>
+              <td class="py-3">103ms</td>
+              <td class="py-3">115ms</td>
+              <td class="py-3">119ms</td>
+            </tr>
+            <tr class="border-b border-warm-100">
+              <td class="py-3">GraphQL query</td>
+              <td class="py-3">198ms</td>
+              <td class="py-3">222ms</td>
+              <td class="py-3">229ms</td>
+            </tr>
+            <tr>
+              <td class="py-3">Federated query</td>
+              <td class="py-3">205ms</td>
+              <td class="py-3">345ms</td>
+              <td class="py-3">355ms</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="mt-2 text-xs text-warm-400">13-entity API on Lambda + EFS, us-east-1</p>
+      </div>
+
+      <div class="mt-12 space-y-6 text-warm-500 leading-relaxed max-w-xl">
+
+        <p>
+          The latency is dominated by EFS I/O, not the application. REST writes take ~100ms because each write fsyncs to EFS for durability. GraphQL reads are slightly higher because they replay from the event log. Federated queries that resolve across three entity types&mdash;farms, coops, hens&mdash;still complete in 205ms at the median.
+        </p>
+
+        <p>
+          Under concurrent load, the numbers hold. With 10 simultaneous users mixing reads and writes, the overall median stays at 192ms.
+        </p>
+
+      </div>
+
+      <!-- Table 2: Lambda internals -->
+      <div class="mt-10 max-w-lg">
+        <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-4">Lambda internals</p>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-warm-200 text-left text-warm-400">
+              <th class="pb-3 font-medium">Metric</th>
+              <th class="pb-3 font-medium">Value</th>
+            </tr>
+          </thead>
+          <tbody class="text-warm-600">
+            <tr class="border-b border-warm-100">
+              <td class="py-3">Binary size</td>
+              <td class="py-3">3.8 MB</td>
+            </tr>
+            <tr class="border-b border-warm-100">
+              <td class="py-3">Cold start (Lambda init)</td>
+              <td class="py-3">57 ms</td>
+            </tr>
+            <tr class="border-b border-warm-100">
+              <td class="py-3">Cold start (end-to-end)</td>
+              <td class="py-3">~900 ms</td>
+            </tr>
+            <tr class="border-b border-warm-100">
+              <td class="py-3">Memory used</td>
+              <td class="py-3">22 MB (of 512 MB)</td>
+            </tr>
+            <tr>
+              <td class="py-3">Warm request (internal)</td>
+              <td class="py-3">1&ndash;5 ms</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="mt-2 text-xs text-warm-400">ARM64 (Graviton2), PROVIDED_AL2023 runtime</p>
+      </div>
+
+      <div class="mt-12 space-y-6 text-warm-500 leading-relaxed max-w-xl">
+
+        <p>
+          The Lambda init duration is 57 milliseconds. That's the time for the runtime to load and start a 3.8MB Rust binary containing 13 entities, 19 resolvers, and the complete event-sourcing storage engine. The remaining ~850ms of the end-to-end cold start is VPC ENI attachment and EFS mount&mdash;infrastructure overhead, not application code.
+        </p>
+
+        <p>
+          Memory usage peaks at 22MB. We allocated 512MB. The binary could run comfortably at 128MB.
+        </p>
+
+        <h2 class="text-lg font-semibold text-warm-800 mt-12">What it costs</h2>
+
+        <p>
+          Lambda pricing is per-request and per-millisecond of compute. At 512MB with a median billed duration of ~100ms, each request costs approximately $0.0000008. A million requests costs $0.84 in compute plus $0.20 in API Gateway fees. The EFS storage costs $0.30/GB-month. At idle, the system costs nothing.
+        </p>
+
+        <p>
+          Compare this to the minimum viable production infrastructure for a traditional deployment: a managed database ($50&ndash;200/month), a container host ($20&ndash;100/month), load balancer ($18/month), and the operational overhead to keep them running. The serverless deployment eliminates all of these for workloads that fit the model.
+        </p>
+
+        <h2 class="text-lg font-semibold text-warm-800 mt-12">Where it breaks</h2>
+
+        <p>
+          This architecture has a hard constraint: single-writer. The event log uses file-level locking (flock) for write exclusion. On EFS, concurrent writers serialize correctly but queue behind the lock, and under heavy write contention we observed requests hitting the 30-second Lambda timeout. For read-heavy workloads with moderate writes, this is irrelevant. For write-intensive workloads, it's a deal-breaker.
+        </p>
+
+        <p>
+          EFS latency also sets a floor. Each durable write requires an fsync round-trip to the file system, which takes 50&ndash;100ms on EFS. A local SSD would reduce this to sub-millisecond, but Lambda doesn't offer persistent local storage. This is the price of serverless durability.
+        </p>
+
+        <h2 class="text-lg font-semibold text-warm-800 mt-12">The point</h2>
+
+        <p>
+          The point isn't that every API should run on Lambda. It's that the assumption of needing a database server, a container platform, and an operations team is worth questioning. For internal tools, prototypes, low-traffic APIs, event-driven systems, and any workload where the write rate is measured in requests per second rather than thousands per second, this architecture eliminates an entire category of infrastructure.
+        </p>
+
+        <p>
+          A 3.8MB binary. An append-only file system. No cluster, no schema migrations, no connection pools, no replica lag. The same 13-entity federated API that runs on MongoDB and Kubernetes, running on nothing.
+        </p>
+
+      </div>
+
+      <div class="mt-16 flex flex-wrap gap-6">
+        <a href="https://github.com/tailoredshapes/meshql-rs/tree/main/examples/egg-economy-lambda" class="text-sm text-warm-600 border-b border-warm-400 pb-px hover:text-warm-900 hover:border-warm-600 transition-colors">
+          Source code &rarr;
+        </a>
+        <a href="../approach/" class="text-sm text-warm-500 border-b border-warm-300 pb-px hover:text-warm-800 hover:border-warm-500 transition-colors">
+          Read the language comparison
+        </a>
+        <a href="../" class="text-sm text-warm-500 border-b border-warm-300 pb-px hover:text-warm-800 hover:border-warm-500 transition-colors">
+          &larr; Back to TailoredShapes
+        </a>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="relative bg-warm-950 text-warm-500 grain grain-heavy">
+    <div class="relative max-w-3xl mx-auto px-6 py-16">
+      <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-6">
+        <div>
+          <p class="text-warm-100 font-medium tracking-tight">TailoredShapes</p>
+        </div>
+        <div class="flex gap-6 text-sm">
+          <a href="mailto:tom@tailoredshapes.com" class="text-warm-500 hover:text-warm-200 transition-colors">tom@tailoredshapes.com</a>
+          <a href="https://github.com/tailoredshapes" class="text-warm-500 hover:text-warm-200 transition-colors">GitHub</a>
+        </div>
+      </div>
+      <div class="mt-12 pt-8 border-t border-warm-800 text-xs text-warm-700">
+        <p>&copy; 2025 TailoredShapes</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

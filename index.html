@@ -98,6 +98,30 @@
   <!-- Divider -->
   <div class="max-w-3xl mx-auto px-6"><hr class="border-warm-200"></div>
 
+  <!-- Deployment -->
+  <section class="relative grain">
+    <div class="relative max-w-3xl mx-auto px-6 py-24 md:py-32">
+      <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-6">Perspective</p>
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">No server required</h2>
+      <div class="mt-6 space-y-4 text-warm-500 leading-relaxed max-w-xl">
+        <p>
+          We deployed the same 13-entity federated API to AWS Lambda with an append-only file system instead of a database. A 3.8MB binary, 57ms cold start, 22MB memory. No database server, no container orchestrator, no ops team. The system costs nothing at idle and fractions of a cent per thousand requests.
+        </p>
+        <p>
+          It won't replace Kubernetes for high-write workloads. But for internal tools, prototypes, and read-heavy APIs, it eliminates an entire category of infrastructure. The right question isn't "can we run without a server?" It's "do we need one?"
+        </p>
+      </div>
+      <div class="mt-8">
+        <a href="deployment/" class="text-sm text-warm-600 border-b border-warm-400 pb-px hover:text-warm-900 hover:border-warm-600 transition-colors">
+          Read the full analysis &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="max-w-3xl mx-auto px-6"><hr class="border-warm-200"></div>
+
   <!-- What we do -->
   <section class="relative grain">
     <div class="relative max-w-3xl mx-auto px-6 py-24 md:py-32">
