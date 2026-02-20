@@ -283,59 +283,101 @@
       <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-6">Open Source</p>
       <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Tools we build and use</h2>
       <p class="mt-4 text-warm-500 leading-relaxed max-w-xl">
-        We build tools when the right one doesn't exist. They're available under BSL 1.1&mdash;free for non-production use, commercial license for production.
+        Everything under BSL 1.1&mdash;free for non-production use, commercial license for production.
       </p>
 
-      <div class="mt-14 space-y-12">
-        <div>
-          <div class="flex items-baseline gap-4">
-            <h3 class="font-medium text-warm-800">MeshQL</h3>
-            <span class="text-xs text-warm-400">Java 21 &middot; GraphQL + REST</span>
+      <!-- Service tier -->
+      <div class="mt-14">
+        <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-8">Service</p>
+        <div class="space-y-12">
+          <div>
+            <div class="flex items-baseline gap-4">
+              <h3 class="font-medium text-warm-800">meshql-ts</h3>
+              <span class="text-xs text-warm-400">TypeScript &middot; The OG</span>
+            </div>
+            <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
+              The original MeshQL. Schema-driven REST + GraphQL APIs with Express, federation resolvers, four database backends. Where the model was proven.
+            </p>
+            <div class="mt-3 flex gap-4 text-sm">
+              <a href="https://github.com/tailoredshapes/meshql-ts" class="text-warm-400 border-b border-warm-200 pb-px hover:text-warm-700 hover:border-warm-400 transition-colors">Source</a>
+            </div>
           </div>
-          <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
-            Data API framework for building federated services from schema definitions. Supports PostgreSQL, MongoDB, and SQLite. Temporal queries, multi-backend federation, full CRUD.
-          </p>
-          <div class="mt-3 flex gap-4 text-sm">
-            <a href="https://tailoredshapes.github.io/meshql/" class="text-warm-500 border-b border-warm-300 pb-px hover:text-warm-800 hover:border-warm-500 transition-colors">Documentation</a>
-            <a href="https://github.com/tailoredshapes/meshql" class="text-warm-400 border-b border-warm-200 pb-px hover:text-warm-700 hover:border-warm-400 transition-colors">Source</a>
+          <div>
+            <div class="flex items-baseline gap-4">
+              <h3 class="font-medium text-warm-800">meshql-java</h3>
+              <span class="text-xs text-warm-400">Java 21 &middot; Enterprise</span>
+            </div>
+            <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
+              The same model in Java. Jetty 12, virtual threads, PostgreSQL, MongoDB, SQLite, ksqlDB. Better performance at the cost of more memory&mdash;a natural fit for virtual infrastructure.
+            </p>
+            <div class="mt-3 flex gap-4 text-sm">
+              <a href="https://tailoredshapes.github.io/meshql/" class="text-warm-500 border-b border-warm-300 pb-px hover:text-warm-800 hover:border-warm-500 transition-colors">Documentation</a>
+              <a href="https://github.com/tailoredshapes/meshql-java" class="text-warm-400 border-b border-warm-200 pb-px hover:text-warm-700 hover:border-warm-400 transition-colors">Source</a>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-baseline gap-4">
+              <h3 class="font-medium text-warm-800">meshql-rs</h3>
+              <span class="text-xs text-warm-400">Rust &middot; Deploy anywhere</span>
+            </div>
+            <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
+              The same model in Rust. Five pluggable backends, sub-millisecond internals, 3.8MB binary. Lambda, edge, embedded. The hard bits are done.
+            </p>
+            <div class="mt-3 flex gap-4 text-sm">
+              <a href="https://github.com/tailoredshapes/meshql-rs" class="text-warm-400 border-b border-warm-200 pb-px hover:text-warm-700 hover:border-warm-400 transition-colors">Source</a>
+            </div>
           </div>
         </div>
-        <div>
-          <div class="flex items-baseline gap-4">
-            <h3 class="font-medium text-warm-800">Mesher</h3>
-            <span class="text-xs text-warm-400">CLI &middot; Code generation</span>
-          </div>
-          <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
-            Points at a legacy database, introspects the schema, and generates a complete anti-corruption layer project. The fastest way to get a working integration from an existing system.
-          </p>
-          <div class="mt-3 flex gap-4 text-sm">
-            <a href="https://tailoredshapes.github.io/meshql/reference/mesher" class="text-warm-500 border-b border-warm-300 pb-px hover:text-warm-800 hover:border-warm-500 transition-colors">Documentation</a>
-            <a href="https://github.com/tailoredshapes/meshql/tree/main/mesher" class="text-warm-400 border-b border-warm-200 pb-px hover:text-warm-700 hover:border-warm-400 transition-colors">Source</a>
-          </div>
-        </div>
-        <div>
-          <div class="flex items-baseline gap-4">
-            <h3 class="font-medium text-warm-800">merkql</h3>
-            <span class="text-xs text-warm-400">Rust &middot; Embedded event log</span>
-          </div>
-          <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
-            Kafka semantics backed by a merkle tree. Topics, partitions, consumer groups, and cryptographic inclusion proofs&mdash;without the cluster. For audit logs, event sourcing, edge systems, and testing.
-          </p>
-          <div class="mt-3 flex gap-4 text-sm">
-            <a href="https://tailoredshapes.github.io/merkql/" class="text-warm-500 border-b border-warm-300 pb-px hover:text-warm-800 hover:border-warm-500 transition-colors">Documentation</a>
-            <a href="https://github.com/tailoredshapes/merkql" class="text-warm-400 border-b border-warm-200 pb-px hover:text-warm-700 hover:border-warm-400 transition-colors">Source</a>
+      </div>
+
+      <!-- Storage tier -->
+      <div class="mt-16">
+        <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-8">Storage</p>
+        <div class="space-y-12">
+          <div>
+            <div class="flex items-baseline gap-4">
+              <h3 class="font-medium text-warm-800">merkql</h3>
+              <span class="text-xs text-warm-400">Rust &middot; Embedded event log</span>
+            </div>
+            <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
+              Kafka semantics backed by a merkle tree. Topics, partitions, consumer groups, and cryptographic inclusion proofs&mdash;without the cluster. The storage engine that makes "no server required" possible.
+            </p>
+            <div class="mt-3 flex gap-4 text-sm">
+              <a href="https://tailoredshapes.github.io/merkql/" class="text-warm-500 border-b border-warm-300 pb-px hover:text-warm-800 hover:border-warm-500 transition-colors">Documentation</a>
+              <a href="https://github.com/tailoredshapes/merkql" class="text-warm-400 border-b border-warm-200 pb-px hover:text-warm-700 hover:border-warm-400 transition-colors">Source</a>
+            </div>
           </div>
         </div>
-        <div>
-          <div class="flex items-baseline gap-4">
-            <h3 class="font-medium text-warm-800">meshobj</h3>
-            <span class="text-xs text-warm-400">TypeScript</span>
+      </div>
+
+      <!-- Tooling tier -->
+      <div class="mt-16">
+        <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-8">Tooling</p>
+        <div class="space-y-12">
+          <div>
+            <div class="flex items-baseline gap-4">
+              <h3 class="font-medium text-warm-800">Mesher</h3>
+              <span class="text-xs text-warm-400">CLI &middot; Code generation</span>
+            </div>
+            <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
+              Points at a legacy database, introspects the schema, and generates a complete anti-corruption layer project. The AI-first onramp to MeshQL.
+            </p>
+            <div class="mt-3 flex gap-4 text-sm">
+              <a href="https://tailoredshapes.github.io/meshql/reference/mesher" class="text-warm-500 border-b border-warm-300 pb-px hover:text-warm-800 hover:border-warm-500 transition-colors">Documentation</a>
+              <a href="https://github.com/tailoredshapes/meshql-java/tree/main/mesher" class="text-warm-400 border-b border-warm-200 pb-px hover:text-warm-700 hover:border-warm-400 transition-colors">Source</a>
+            </div>
           </div>
-          <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
-            Type-safe client for MeshQL APIs. Zero dependencies.
-          </p>
-          <div class="mt-3 flex gap-4 text-sm">
-            <a href="https://github.com/tailoredshapes/meshobj" class="text-warm-400 border-b border-warm-200 pb-px hover:text-warm-700 hover:border-warm-400 transition-colors">Source</a>
+          <div>
+            <div class="flex items-baseline gap-4">
+              <h3 class="font-medium text-warm-800">moth</h3>
+              <span class="text-xs text-warm-400">Rust &middot; Issue tracking</span>
+            </div>
+            <p class="mt-2 text-warm-500 text-sm leading-relaxed max-w-lg">
+              Git-style file-based issue tracker. Zero setup, stores issues as markdown, works for humans and LLMs equally. How we track work.
+            </p>
+            <div class="mt-3 flex gap-4 text-sm">
+              <a href="https://github.com/tailoredshapes/moth" class="text-warm-400 border-b border-warm-200 pb-px hover:text-warm-700 hover:border-warm-400 transition-colors">Source</a>
+            </div>
           </div>
         </div>
       </div>
