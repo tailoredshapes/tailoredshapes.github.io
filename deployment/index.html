@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>No Server Required &mdash; TailoredShapes</title>
-  <meta name="description" content="A 13-entity federated API with event sourcing on AWS Lambda + EFS. No database server, no cluster, no ops team. 3.8MB binary, 57ms cold start.">
+  <title>From Laptop to Production &mdash; TailoredShapes</title>
+  <meta name="description" content="The same 13-entity federated API runs on Lambda+EFS, Lambda+Confluent Cloud, and K8s+Postgres. No code changes between environments.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
   <article class="relative grain">
     <div class="relative max-w-3xl mx-auto px-6 py-24 md:py-32">
       <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-6">Perspective</p>
-      <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">No server required</h1>
+      <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">From laptop to production</h1>
 
       <div class="mt-8 space-y-6 text-warm-500 leading-relaxed max-w-xl">
 
@@ -167,21 +167,93 @@
           EFS latency also sets a floor. Each durable write requires an fsync round-trip to the file system, which takes 50&ndash;100ms on EFS. A local SSD would reduce this to sub-millisecond, but Lambda doesn't offer persistent local storage. This is the price of serverless durability.
         </p>
 
-        <h2 class="text-lg font-semibold text-warm-800 mt-12">The point</h2>
+        <h2 class="text-lg font-semibold text-warm-800 mt-12">What if you need more?</h2>
 
         <p>
-          The point isn't that every API should run on Lambda. It's that the assumption of needing a database server, a container platform, and an operations team is worth questioning. For internal tools, prototypes, low-traffic APIs, event-driven systems, and any workload where the write rate is measured in requests per second rather than thousands per second, this architecture eliminates an entire category of infrastructure.
+          The EFS deployment tops out at ~9 writes per second. For many workloads, that's plenty. But what if it isn't?
         </p>
 
         <p>
-          A 3.8MB binary. An append-only file system. No cluster, no schema migrations, no connection pools, no replica lag. The same 13-entity federated API that runs on MongoDB and Kubernetes, running on nothing.
+          We deployed the same API&mdash;same schemas, same clients, same federation resolvers&mdash;with <a href="https://github.com/tailoredshapes/meshql-rs/tree/main/examples/egg-economy-ksql" class="text-warm-600 border-b border-warm-400 pb-px hover:text-warm-900 hover:border-warm-600 transition-colors">Confluent Cloud as the storage backend</a>. No code changed. We swapped one configuration.
+        </p>
+
+      </div>
+
+      <!-- Comparison table -->
+      <div class="mt-10 max-w-lg">
+        <p class="text-xs font-medium tracking-[0.2em] uppercase text-warm-400 mb-4">Backend comparison</p>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-warm-200 text-left text-warm-400">
+              <th class="pb-3 font-medium">Metric</th>
+              <th class="pb-3 font-medium">Lambda + EFS</th>
+              <th class="pb-3 font-medium">Lambda + Confluent</th>
+            </tr>
+          </thead>
+          <tbody class="text-warm-600">
+            <tr class="border-b border-warm-100">
+              <td class="py-3">REST create p50</td>
+              <td class="py-3">103ms</td>
+              <td class="py-3">54ms</td>
+            </tr>
+            <tr class="border-b border-warm-100">
+              <td class="py-3">REST create p95</td>
+              <td class="py-3">119ms</td>
+              <td class="py-3">65ms</td>
+            </tr>
+            <tr class="border-b border-warm-100">
+              <td class="py-3">Write throughput</td>
+              <td class="py-3">~9/sec</td>
+              <td class="py-3">~49/sec</td>
+            </tr>
+            <tr class="border-b border-warm-100">
+              <td class="py-3">Cold start</td>
+              <td class="py-3">57ms</td>
+              <td class="py-3">52ms</td>
+            </tr>
+            <tr class="border-b border-warm-100">
+              <td class="py-3">Memory</td>
+              <td class="py-3">22MB</td>
+              <td class="py-3">21MB</td>
+            </tr>
+            <tr>
+              <td class="py-3">Infrastructure cost</td>
+              <td class="py-3">$0 idle</td>
+              <td class="py-3">~$1/hr</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="mt-2 text-xs text-warm-400">Same 13-entity API, same Lambda function, different storage backend</p>
+      </div>
+
+      <div class="mt-12 space-y-6 text-warm-500 leading-relaxed max-w-xl">
+
+        <p>
+          No schemas changed. No clients changed. No federation resolvers changed. The API contract is identical. The only difference is where the data lives.
+        </p>
+
+        <h2 class="text-lg font-semibold text-warm-800 mt-12">The point</h2>
+
+        <p>
+          The point isn't that every API should run on Lambda, or Kafka, or Kubernetes. It's that <strong class="text-warm-700">meshql makes the infrastructure a detail you choose later.</strong>
+        </p>
+
+        <p>
+          Start on your laptop with SQLite or an embedded event log. Deploy to Lambda when you need a URL. Move to Confluent Cloud when you need throughput. Graduate to a full cluster when you need everything. The API, the schemas, the clients&mdash;they never change.
+        </p>
+
+        <p>
+          That's the product.
         </p>
 
       </div>
 
       <div class="mt-16 flex flex-wrap gap-6">
         <a href="https://github.com/tailoredshapes/meshql-rs/tree/main/examples/egg-economy-lambda" class="text-sm text-warm-600 border-b border-warm-400 pb-px hover:text-warm-900 hover:border-warm-600 transition-colors">
-          Source code &rarr;
+          EFS source &rarr;
+        </a>
+        <a href="https://github.com/tailoredshapes/meshql-rs/tree/main/examples/egg-economy-ksql" class="text-sm text-warm-600 border-b border-warm-400 pb-px hover:text-warm-900 hover:border-warm-600 transition-colors">
+          Confluent source &rarr;
         </a>
         <a href="../approach/" class="text-sm text-warm-500 border-b border-warm-300 pb-px hover:text-warm-800 hover:border-warm-500 transition-colors">
           Read the language comparison
