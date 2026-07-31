@@ -1,1 +1,6 @@
 node_modules/
+
+# Design handoff bundles. GitHub Pages publishes this repo verbatim, so
+# anything committed here is downloadable from tailoredshapes.github.io.
+*.zip
+design_handoff*/

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toolkit — TailoredShapes</title>
+  <meta name="description" content="Three implementations of one model, four implementations of one log, and the tools that generate them. meshql, merkql, merk-aws, merk-azure, merkpgql, Mesher and moth.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="../styles.css" rel="stylesheet">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="site-nav" aria-label="Primary">
+  <span class="brand">Tailored<strong>Shapes</strong></span>
+  <a class="nav-page" href="../">Home</a>
+  <a class="nav-page" href="./" aria-current="page">Toolkit</a>
+  <a class="nav-page" href="../case-studies/springfield-electric/">Worked example</a>
+  <a class="email-link" href="mailto:tmarsh@tailoredshapes.com">Email Tom</a>
+</nav>
+
+<main id="main">
+
+  <section class="band band--open" aria-labelledby="toolkit-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="toolkit-label">The toolkit</p>
+    </div>
+    <div class="band__body">
+      <h1 class="h1--sub">Everything we build with, <strong>we built.</strong></h1>
+      <p class="lead lead--wide">
+        Three implementations of one model, four implementations of one log, and
+        the tools that generate them. What's published is BSL 1.1 — free for
+        non-production use, commercial licence for production. The cloud and
+        database backends are commercial. merkql is public on purpose.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band--tight" aria-labelledby="service-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="service-label">Service <br> the API layer</p>
+    </div>
+    <div class="band__body">
+      <div class="cards">
+        <article class="card card--lead">
+          <span class="card__kicker">TypeScript · the original</span>
+          <h4>meshql-ts</h4>
+          <p>
+            Schema-driven REST + GraphQL with Express, federation resolvers,
+            four database backends. Where the model was proven.
+          </p>
+          <a href="https://github.com/tailoredshapes/meshql-ts">Source &rarr;</a>
+        </article>
+        <article class="card card--lead">
+          <span class="card__kicker">Java 21 · enterprise</span>
+          <h4>meshql-java</h4>
+          <p>
+            Jetty 12, virtual threads, PostgreSQL, MongoDB, SQLite, ksqlDB. The
+            one to pick when your platform team already speaks JVM.
+          </p>
+          <a href="https://github.com/tailoredshapes/meshql-java">Source &rarr;</a>
+        </article>
+        <article class="card card--lead">
+          <span class="card__kicker">Rust · deploy anywhere</span>
+          <h4>meshql-rs</h4>
+          <p>
+            A 3.8MB binary that boots fast enough for Lambda and small enough
+            for the edge. Same model, same schemas.
+          </p>
+          <a href="https://github.com/tailoredshapes/meshql-rs">Source &rarr;</a>
+        </article>
+      </div>
+      <p class="aside-note">
+        We built the same thirteen-entity federated API in all three, against
+        the same MongoDB. Under load they converge — the gap between them
+        disappears behind a single database query. So the language question
+        isn't &ldquo;which is fastest&rdquo;, it's &ldquo;which does your team
+        ship reliably in&rdquo;. Answer that one and we'll use it.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band--tight" aria-labelledby="storage-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="storage-label">Storage <br> the log</p>
+    </div>
+    <div class="band__body">
+      <div class="cards cards--pair">
+        <article class="card card--lead">
+          <span class="card__kicker card__kicker--accent">Rust · embedded log · open source</span>
+          <h4>merkql</h4>
+          <p>
+            Kafka semantics on a merkle tree: topics, partitions, consumer
+            groups and inclusion proofs, without the cluster. Single-writer by
+            design, and it says so plainly when you outgrow it.
+          </p>
+          <a href="https://github.com/tailoredshapes/merkql">Source &rarr;</a>
+        </article>
+        <article class="card">
+          <span class="card__kicker">Rust · S3 Express One Zone · commercial</span>
+          <h4>merk-aws</h4>
+          <p>
+            Concurrent producers serialise against S3 itself, so many Lambdas
+            write one partition with nothing coordinating them — and nothing
+            running between requests.
+          </p>
+        </article>
+        <article class="card">
+          <span class="card__kicker">Rust · Azure append blobs · commercial</span>
+          <h4>merk-azure</h4>
+          <p>
+            Native append blobs with server-enforced sealing. No Azure SDK — a
+            handful of REST calls and a signer — so an Azure Functions cold
+            start stays small.
+          </p>
+        </article>
+        <article class="card">
+          <span class="card__kicker">Rust · PostgreSQL · commercial</span>
+          <h4>merkpgql</h4>
+          <p>
+            The log in your database and in your transactions. An append shares
+            a commit with the domain write that caused it — which is the outbox
+            problem not existing, rather than being solved.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--tight" aria-labelledby="tooling-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="tooling-label">Tooling</p>
+    </div>
+    <div class="band__body">
+      <div class="cards cards--pair">
+        <article class="card card--lead">
+          <span class="card__kicker">CLI · code generation</span>
+          <h4>Mesher</h4>
+          <p>
+            Point it at a legacy database, describe the domain, get a complete
+            anti-corruption layer project: introspection, mapping, generation.
+            Minutes, not months.
+          </p>
+          <a href="https://tailoredshapes.github.io/meshql/reference/mesher">Documentation &rarr;</a>
+        </article>
+        <article class="card">
+          <span class="card__kicker">Rust · issue tracking</span>
+          <h4>moth</h4>
+          <p>
+            A git-style, file-based issue tracker. Issues as markdown, zero
+            setup, equally legible to humans and LLMs. It's how we track our own
+            work.
+          </p>
+          <a href="https://github.com/tailoredshapes/moth">Source &rarr;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="close close--compact" aria-labelledby="licence-label">
+  <div class="band">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="licence-label">Licences <br> and bespoke</p>
+    </div>
+    <div class="band__body">
+      <h3>Need a licence, or <strong>a piece that doesn't exist yet?</strong></h3>
+      <a class="email-link" href="mailto:tmarsh@tailoredshapes.com">tmarsh@tailoredshapes.com</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__brand">Tailored<strong>Shapes</strong></div>
+  <div class="site-footer__links">
+    <a href="mailto:tmarsh@tailoredshapes.com">tmarsh@tailoredshapes.com</a>
+    <a href="../">Home</a>
+    <a href="../case-studies/springfield-electric/">Worked example</a>
+    <a href="https://github.com/tailoredshapes">GitHub</a>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>

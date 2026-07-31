@@ -3,496 +3,392 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TailoredShapes</title>
-  <meta name="description" content="We sell outcomes. Config-driven APIs, pluggable backends, federated queries. The API you need, running in production, in days not months.">
+  <title>TailoredShapes — the API your legacy system should have had</title>
+  <meta name="description" content="Clean APIs in front of systems that can't change. Our framework handles the ninety-five percent that is the same everywhere; we tailor the rest to the shape you actually have.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
+  <script type="module" src="picker.js"></script>
 </head>
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="hero grained">
-  <div class="column">
-    <p class="wordmark">TailoredShapes</p>
-    <h1>We sell outcomes.<br><span class="dimmed">Not platforms.</span></h1>
-    <p class="lede">
-      The API you need, running in production, in days not months. Our framework
-      handles the 95%. We tailor the rest.
-    </p>
-    <nav class="hero-actions" aria-label="Primary">
-      <a class="underlined" href="#work">Our work</a>
-      <a class="underlined" href="mailto:tom@tailoredshapes.com">Contact</a>
-    </nav>
-  </div>
-</header>
+<nav class="site-nav" aria-label="Primary">
+  <span class="brand">Tailored<strong>Shapes</strong></span>
+  <a class="nav-page" href="./" aria-current="page">Home</a>
+  <a class="nav-page" href="toolkit/">Toolkit</a>
+  <a class="nav-page" href="case-studies/springfield-electric/">Worked example</a>
+  <a class="email-link" href="mailto:tmarsh@tailoredshapes.com">Email Tom</a>
+</nav>
 
 <main id="main">
 
-  <section class="section" aria-labelledby="product">
-    <div class="column">
-      <p class="eyebrow">The product</p>
-      <h2 id="product">meshql is ours</h2>
-      <p class="lede">
-        <a class="underlined" href="https://tailoredshapes.github.io/meshql/">meshql</a>
-        is the engine behind everything we deliver. Open source, battle-tested,
-        and built by us. It turns schema definitions into federated APIs with
-        REST writes, GraphQL reads, and cross-entity resolvers&mdash;out of the
-        box.
+  <section class="band band--open" aria-labelledby="hero-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="hero-label">95% off <br> the shelf <br> 4% tailored <br> 1% bespoke</p>
+    </div>
+    <div class="band__body">
+      <h1>The API your legacy system <strong>should have had.</strong></h1>
+      <p class="lead">
+        Every integration is measured before it is cut. Our framework handles
+        the ninety-five percent that is the same everywhere — REST writes,
+        GraphQL reads, federation across systems that were never meant to
+        talk. We tailor the rest to the shape you actually have.
       </p>
-      <p class="lede">Think of it like buying a suit. 95% off the shelf, 4% tailored, 1% bespoke.</p>
+      <p class="lead">
+        No platform, no licence, no twelve-month migration. Running software,
+        against the databases you already run. Usually in days.
+      </p>
+      <div class="actions">
+        <a class="btn btn--solid" href="mailto:tmarsh@tailoredshapes.com">Start a conversation</a>
+        <a class="btn btn--ghost" href="#proof">See the proof</a>
+      </div>
+    </div>
+  </section>
 
-      <div class="grid">
-        <article>
-          <h3>Off the shelf</h3>
-          <p class="item-note">
-            Define your schema, get REST + GraphQL + federation. An LLM can
-            generate a complete solution in minutes. Work that used to take
-            teams months now takes a conversation.
+  <section class="band band--tight" aria-labelledby="get-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="get-label">What you <br> actually get</p>
+    </div>
+    <div class="band__body">
+      <div class="claims">
+        <article class="claim">
+          <h3>It runs where you already are</h3>
+          <p>
+            A directory on a laptop, S3, the PostgreSQL you already back up, or
+            a Kafka cluster if you have one. Nobody has to buy infrastructure to
+            buy an API — no new vendor on the diagram, no new line in the budget,
+            no new thing for your ops team to be woken up by.
           </p>
         </article>
-        <article>
-          <h3>Tailored</h3>
-          <p class="item-note">
-            Swap the backend without changing clients. The same API runs on your
-            laptop against a file, on Lambda against object storage, on your own
-            PostgreSQL, or on a Kafka cluster. Choose the infrastructure that
-            fits&mdash;the code doesn't change.
+        <article class="claim">
+          <h3>Changing your mind costs a config file</h3>
+          <p>
+            Moving from your laptop to Lambda to your own database edits four
+            lines of storage config. Schemas, resolvers and every client stay
+            exactly as they are — so &ldquo;let's revisit the infrastructure next
+            year&rdquo; is an afternoon, not a re-platform with a business case
+            attached.
           </p>
         </article>
-        <article>
-          <h3>Custom</h3>
-          <p class="item-note">
-            When the off-the-shelf doesn't fit, build the piece that's missing.
-            One component, not the whole system. The framework doesn't fight you.
+        <article class="claim">
+          <h3>The portability claim can be falsified</h3>
+          <p>
+            Every backend we ship is checked by the same conformance suite
+            against live infrastructure, not mocks. If one of them ever drifts,
+            the suite goes red and we find out before you do. That is the
+            difference between a vendor telling you it's portable and you being
+            able to check.
+          </p>
+        </article>
+        <article class="claim">
+          <h3>You own it when we leave</h3>
+          <p>
+            What we hand over is source, infrastructure config and tests, on
+            your repositories, running on your accounts. No runtime licence, no
+            phoning home, no dependency on us being available next quarter.
           </p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="certified">
-    <div class="column">
-      <p class="eyebrow">Perspective</p>
-      <h2 id="certified">Portability you can run</h2>
-      <p class="lede">
-        &ldquo;Pluggable backends&rdquo; is the most over-claimed phrase in
-        infrastructure, so we made ours falsifiable. One event-log surface, four
-        independent implementations, and a conformance suite that every one of
-        them passes.
+  <section class="band" aria-labelledby="fitting-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="fitting-label">Fitting <br> one schema, <br> four places <br> to run it</p>
+    </div>
+    <div class="band__body">
+      <h2>The same garment, <strong>altered to the room.</strong></h2>
+      <p class="copy copy--gap-lg">
+        Pick where you'd deploy and watch what changes. It is the storage
+        stanza — four lines. Nothing else moves: not the schema, not the
+        resolvers, not a single client. That is what makes the decision
+        reversible, which is the only reason to care about it at all.
       </p>
-      <p class="lede">
+
+      <div data-picker>
+        <div class="picker__tabs" role="tablist" aria-label="Where to run it">
+          <button class="tab" type="button" role="tab" id="tab-merkql"
+                  aria-controls="picker-panel" aria-selected="true">
+            <span class="tab__tick"></span>
+            <span class="tab__name">merkql</span>
+            <span class="tab__stage">Your laptop</span>
+          </button>
+          <button class="tab" type="button" role="tab" id="tab-merk-aws"
+                  aria-controls="picker-panel" aria-selected="false" tabindex="-1">
+            <span class="tab__tick"></span>
+            <span class="tab__name">merk-aws</span>
+            <span class="tab__stage">Serverless</span>
+          </button>
+          <button class="tab" type="button" role="tab" id="tab-merkpgql"
+                  aria-controls="picker-panel" aria-selected="false" tabindex="-1">
+            <span class="tab__tick"></span>
+            <span class="tab__name">merkpgql</span>
+            <span class="tab__stage">Your database</span>
+          </button>
+          <button class="tab" type="button" role="tab" id="tab-kafka"
+                  aria-controls="picker-panel" aria-selected="false" tabindex="-1">
+            <span class="tab__tick"></span>
+            <span class="tab__name">Kafka</span>
+            <span class="tab__stage">Enterprise</span>
+          </button>
+        </div>
+
+        <div class="picker__panel" id="picker-panel" role="tabpanel"
+             aria-labelledby="tab-merkql" tabindex="0">
+          <div>
+            <div class="stack">
+              <div class="stack__line">
+                <span>Three client apps · React, iOS, internal ops</span>
+                <span class="stack__note">unchanged</span>
+              </div>
+              <div class="stack__line">
+                <span>meshql · REST writes · GraphQL reads · federation</span>
+                <span class="stack__note">unchanged</span>
+              </div>
+              <div class="stack__line stack__line--live">
+                <span class="stack__what">
+                  <span class="tick"></span>
+                  <span data-field="log">merkql — an embedded log, no server</span>
+                </span>
+                <span class="stack__note--live">this line only</span>
+              </div>
+              <div class="stack__line">
+                <span data-field="infra">A directory on disk</span>
+                <span class="stack__note">your estate</span>
+              </div>
+            </div>
+            <pre data-field="config">storage:
+  driver: merkql
+  path:   ./data
+
+# schema, resolvers, clients: untouched</pre>
+          </div>
+
+          <div class="picker__aside">
+            <div>
+              <p class="label">When you'd wear it</p>
+              <p data-field="when">Development, demos, and any single-process service that doesn't need a broker.</p>
+            </div>
+            <div class="hairline"></div>
+            <div>
+              <p class="label">Why it holds</p>
+              <p class="body-text" data-field="why">A directory and one command. No container, no cluster, nothing to install — so a new engineer is productive on day one rather than week two.</p>
+            </div>
+            <div class="hairline"></div>
+            <div>
+              <p class="label">What it costs you when nothing is happening</p>
+              <p data-field="cost">Nothing exists. There is no service to leave running.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="closing-line">You promote your environment. You don't rewrite your code.</p>
+    </div>
+  </section>
+
+  <section class="band" id="proof" aria-labelledby="proof-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="proof-label">The proof <br> one suite, <br> four backends</p>
+    </div>
+    <div class="band__body">
+      <h2>Portability you can run, <strong>not portability you're promised.</strong></h2>
+      <p class="copy">
+        Anyone can write &ldquo;pluggable backends&rdquo; on a slide. The
+        question worth asking a supplier is: how would we find out if it were
+        untrue? Here is our answer — one event-log surface, four independent
+        implementations, and a single suite that runs the same behavioural tests
+        against every one of them on real infrastructure.
+      </p>
+      <p class="copy copy--gap">
+        Records serialise to identical bytes and merkle roots agree at every
+        size, so a proof issued by one backend verifies under another.
+        Practically: when you migrate, you can check that the data that arrived
+        is the data that left — rather than hoping.
+      </p>
+
+      <div class="proof">
+        <div class="proof__row proof__head">
+          <span>Implementation</span><span>Storage</span><span>Tested against</span>
+          <span class="proof__verdict">Suite</span>
+        </div>
+        <div class="proof__row">
+          <span>merkql</span><span>Local files</span><span>Disk</span>
+          <span class="proof__verdict">passes</span>
+        </div>
+        <div class="proof__row">
+          <span>merk-aws</span><span>S3 Express One Zone</span><span>A live directory bucket</span>
+          <span class="proof__verdict">passes</span>
+        </div>
+        <div class="proof__row">
+          <span>merk-azure</span><span>Azure append blobs</span><span>Azurite</span>
+          <span class="proof__verdict">passes</span>
+        </div>
+        <div class="proof__row">
+          <span>merkpgql</span><span>PostgreSQL</span><span>A live database</span>
+          <span class="proof__verdict">passes</span>
+        </div>
+      </div>
+
+      <p class="note">
         Compiling the suite proves the API matches. Passing it proves the
-        behaviour does. Records serialise to identical bytes and merkle roots
-        agree at every size, so a proof issued by one backend verifies under
-        another&mdash;which is also what makes a migration checkable rather than
-        hopeful.
+        behaviour does. The suite is public — you can run it yourself, which is
+        rather the point.
       </p>
-
-      <div class="scroll-x">
-        <table class="facts">
-          <caption>The same 27 tests, against real infrastructure in every case.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Implementation</th>
-              <th scope="col">Storage</th>
-              <th scope="col">Certified against</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">merkql</th><td>Local files</td><td>Disk</td></tr>
-            <tr><th scope="row">merk-aws</th><td>S3 Express One Zone</td><td>A live directory bucket</td></tr>
-            <tr><th scope="row">merk-azure</th><td>Azure append blobs</td><td>Azurite</td></tr>
-            <tr><th scope="row">merkpgql</th><td>PostgreSQL</td><td>A live database</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <a class="more" href="https://github.com/tailoredshapes/merkql/tree/main/merk-cert">See the suite &rarr;</a>
+      <a class="more" href="https://github.com/tailoredshapes/merkql/tree/main/merk-cert">Read the suite</a>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="speed">
-    <div class="column">
-      <p class="eyebrow">Perspective</p>
-      <h2 id="speed">Speed is a distraction</h2>
-      <p class="lede">
-        Teams spend months debating Rust vs Java vs TypeScript based on
-        benchmarks that vanish behind a single database query. We built the same
-        13-entity federated API in all three languages, against the same MongoDB
-        infrastructure. Under load, they converge.
-      </p>
-      <p class="lede">
-        The difference between &ldquo;0.7ms&rdquo; and &ldquo;1.8ms&rdquo; is
-        undetectable to any human or frontend. The real performance lever is
-        infrastructure&mdash;indexing, connection pooling, sharding&mdash;not
-        language choice. The right question isn't &ldquo;which language is
-        fastest?&rdquo; It's &ldquo;which language lets this team ship reliable
-        software fastest?&rdquo;
-      </p>
-      <a class="more" href="approach/">Read the full analysis &rarr;</a>
+  <section class="band" aria-labelledby="do-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="do-label">What we do</p>
     </div>
-  </section>
-
-  <section class="section" aria-labelledby="environments">
-    <div class="column">
-      <p class="eyebrow">Perspective</p>
-      <h2 id="environments">From laptop to production</h2>
-      <p class="lede">
-        The same code runs everywhere. No rewrites between environments, no
-        backend-specific logic leaking into your schemas, no &ldquo;works on my
-        machine.&rdquo;
-      </p>
-
-      <div class="ladder">
-        <article class="rung">
-          <h3>Your laptop</h3>
-          <p class="measure">merkql &middot; an embedded log, no server</p>
-          <p class="item-note">
-            A directory on disk and <code>cargo run</code>. No container, no
-            cluster, nothing to install. One process writes it, which on a laptop
-            is every process there is.
-          </p>
-        </article>
-        <article class="rung">
-          <h3>Serverless</h3>
-          <p class="measure">merk-aws &middot; ~11,700 events/sec per partition</p>
-          <p class="item-note">
-            Compare-and-swap appends to S3 Express One Zone, so concurrent
-            Lambdas serialise against the store itself&mdash;no broker, no lease,
-            no coordinator. Measured in region at 7.4ms per flush. No VPC, no NAT
-            gateway, and genuinely nothing running when idle.
-          </p>
-        </article>
-        <article class="rung">
-          <h3>Your database</h3>
-          <p class="measure">merkpgql &middot; PostgreSQL you already run</p>
-          <p class="item-note">
-            The log becomes a table rather than new infrastructure&mdash;no new
-            backup policy, monitoring or sign-off. Writers queue on a row lock
-            instead of colliding, events are queryable by key, and an append can
-            share a transaction with your domain write.
-          </p>
-        </article>
-        <article class="rung">
-          <h3>Enterprise</h3>
-          <p class="measure">Kafka &middot; when the log never goes quiet</p>
-          <p class="item-note">
-            A broker earns its operational cost when throughput is sustained
-            rather than bursty. Same API, same schemas, same clients. We will
-            tell you when you have reached that point, and it is further away
-            than most people assume.
-          </p>
-        </article>
-      </div>
-
-      <p class="lede">You promote your environment, not rewrite your code.</p>
-      <a class="more" href="deployment/">Read the full analysis &rarr;</a>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="ai">
-    <div class="column">
-      <p class="eyebrow">Approach</p>
-      <h2 id="ai">AI-first</h2>
-      <p class="lede">
-        LLMs understand meshql's schema-driven model natively. Describe your
-        domain in natural language, get a working federated API. Config files,
-        GraphQL schemas, JSON definitions, federation resolvers&mdash;all
-        generated from a conversation.
-      </p>
-      <p class="lede">
-        <a class="underlined" href="https://tailoredshapes.github.io/meshql/reference/mesher">Mesher</a>
-        takes this further: point it at a legacy database, describe the domain,
-        and get a complete anti-corruption layer project. Schema introspection,
-        domain mapping, code generation. Minutes, not months.
-      </p>
-      <p class="lede">
-        This isn't &ldquo;AI-assisted.&rdquo; The framework was designed for it.
-        Config-driven means LLM-generatable.
-      </p>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="services">
-    <div class="column">
-      <p class="eyebrow">Services</p>
-      <h2 id="services">What we do</h2>
-      <p class="lede">We deliver working APIs, not proposals. Every engagement ships running software.</p>
-
-      <div class="grid">
-        <article>
+    <div class="band__body">
+      <div class="steps">
+        <article class="step">
+          <span class="step__num">01</span>
           <h3>Rapid delivery</h3>
-          <p class="item-note">
-            Config-driven APIs from schema definitions. AI-generated where
-            possible. A working federated API in days, not quarters.
+          <p>
+            Config-driven APIs generated from your schema, reviewed by us,
+            shipped with tests. A working federated API in days. If your
+            integration is genuinely a quarter of work, we say so on the first
+            call.
           </p>
         </article>
-        <article>
-          <h3>Environment fitting</h3>
-          <p class="item-note">
-            Match the runtime to the workload. Laptop for dev, serverless for
-            prototypes, your own database for production, a cluster only when the
-            numbers demand one. Same code, every time.
-          </p>
-        </article>
-        <article>
+        <article class="step">
+          <span class="step__num">02</span>
           <h3>Legacy integration</h3>
-          <p class="item-note">
+          <p>
             Clean API boundaries in front of systems that can't change. CDC,
-            anti-corruption layers, event streaming. The source system stays
-            untouched.
+            anti-corruption layers, event streaming. SCREAMING_SNAKE columns and
+            VARCHAR dates stay exactly where they are — your new apps never see
+            them.
+          </p>
+        </article>
+        <article class="step">
+          <span class="step__num">03</span>
+          <h3>Environment fitting</h3>
+          <p>
+            Match the runtime to the workload, not to a vendor's roadmap. A
+            cluster only when the numbers demand one — and that point is further
+            away than most people are told.
+          </p>
+        </article>
+        <article class="step">
+          <span class="step__num">04</span>
+          <h3>Handover</h3>
+          <p>
+            You get the source, the infrastructure config and the tests. Your
+            team operates it. We stay for as long as that takes, then get out of
+            the way.
           </p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="work" aria-labelledby="work-heading">
-    <div class="column">
-      <p class="eyebrow">Work</p>
-      <h2 id="work-heading">Case studies</h2>
-      <p class="lede">Each includes working source, infrastructure configuration, and automated tests.</p>
-
-      <div class="stack">
-        <article>
-          <div class="item-head">
-            <h3><a class="underlined" href="https://tailoredshapes.github.io/meshql/examples/legacy">Springfield Electric</a></h3>
-            <span class="item-kind">Anti-corruption layer</span>
-          </div>
-          <p class="item-note">
-            Legacy PostgreSQL with SCREAMING_SNAKE columns and VARCHAR dates. A
-            CDC pipeline surfaces clean domain entities. Three frontend apps,
-            zero changes to the source.
+  <section class="band" aria-labelledby="work-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="work-label">Worked examples <br> each ships with <br> working source</p>
+    </div>
+    <div class="band__body">
+      <div class="cards">
+        <article class="card card--lead">
+          <span class="card__kicker card__kicker--accent">Anti-corruption layer</span>
+          <h4>Springfield Electric</h4>
+          <p>
+            A CDC pipeline surfaces clean domain entities from a legacy
+            PostgreSQL. Three frontend teams unblocked, nothing touched in the
+            source system. Runnable end to end.
           </p>
+          <a href="case-studies/springfield-electric/">Read it &rarr;</a>
         </article>
-        <article>
-          <div class="item-head">
-            <h3><a class="underlined" href="https://tailoredshapes.github.io/meshql/examples/power-plants">Global Power Plants</a></h3>
-            <span class="item-kind">Automated code generation</span>
-          </div>
-          <p class="item-note">
-            34,936 plants across 167 countries. Point the CLI at the legacy
-            schema, describe the domain, get a working API in minutes.
+        <article class="card">
+          <span class="card__kicker">Multi-system federation</span>
+          <h4>The Enterprise</h4>
+          <p>
+            SAP ERP and a distribution PostgreSQL behind one federated API, so a
+            frontend team stops needing an SAP specialist to read an order.
           </p>
+          <a href="https://tailoredshapes.github.io/meshql/examples/enterprise">Read it &rarr;</a>
         </article>
-        <article>
-          <div class="item-head">
-            <h3><a class="underlined" href="https://tailoredshapes.github.io/meshql/examples/enterprise">The Enterprise</a></h3>
-            <span class="item-kind">Multi-system federation</span>
-          </div>
-          <p class="item-note">
-            Two legacy databases&mdash;SAP ERP and distribution
-            PostgreSQL&mdash;unified behind a single federated API. 13 services,
-            one <code>docker compose up</code>.
+        <article class="card">
+          <span class="card__kicker">Generated from a schema</span>
+          <h4>Global Power Plants</h4>
+          <p>
+            A large public dataset with a hostile schema. Point the CLI at it,
+            describe the domain, and the mapping work that would have been a
+            sprint is a coffee.
           </p>
+          <a href="https://tailoredshapes.github.io/meshql/examples/power-plants">Read it &rarr;</a>
         </article>
-        <article>
-          <div class="item-head">
-            <h3><a class="underlined" href="https://tailoredshapes.github.io/meshql/examples/logistics">SwiftShip Logistics</a></h3>
-            <span class="item-kind">Full-stack platform</span>
-          </div>
-          <p class="item-note">
-            Three frontend apps, four entities, eight federation resolvers,
-            Docker and Kubernetes manifests. Built in under 30 minutes.
-          </p>
-        </article>
-        <article>
-          <div class="item-head">
-            <h3><a class="underlined" href="https://tailoredshapes.github.io/meshql/examples/egg-economy">National Egg Economy</a></h3>
-            <span class="item-kind">Event sourcing + CDC</span>
-          </div>
-          <p class="item-note">
-            13 entities, three databases, materialized projections, and a
-            Debezium CDC pipeline. Three frontend apps from three different
-            teams.
-          </p>
-        </article>
-      </div>
-
-      <div class="tier">
-        <p class="eyebrow">More examples</p>
-        <ul class="inline-list">
-          <li><a class="underlined" href="https://tailoredshapes.github.io/meshql/examples/farm">Farm</a></li>
-          <li><a class="underlined" href="https://tailoredshapes.github.io/meshql/examples/events">Events</a></li>
-          <li><a class="underlined" href="https://tailoredshapes.github.io/meshql/examples/egg-economy-sap">Egg Economy SAP</a></li>
-          <li><a class="underlined" href="https://tailoredshapes.github.io/meshql/examples/egg-economy-salesforce">Egg Economy Salesforce</a></li>
-        </ul>
       </div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="tools">
-    <div class="column">
-      <p class="eyebrow">The toolkit</p>
-      <h2 id="tools">Tools we build and use</h2>
-      <p class="lede">
-        What is published is under BSL 1.1&mdash;free for non-production use,
-        commercial license for production. The cloud and database backends are
-        commercial and not public; merkql, the log itself, deliberately is.
+  <section class="band" aria-labelledby="os-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="os-label">Open source</p>
+    </div>
+    <div class="band__body">
+      <h2 class="h2--sm">meshql is ours, <strong>and it's yours.</strong></h2>
+      <p class="copy">
+        meshql turns schema definitions into federated APIs. It's the engine
+        behind everything we deliver, and you can run it without ever talking to
+        us. merkql — the log itself — is deliberately public, so the foundation
+        of what we sell isn't something we can take away from you.
       </p>
-
-      <div class="tier">
-        <p class="eyebrow">Service</p>
-        <div class="stack">
-          <article>
-            <div class="item-head"><h3>meshql-ts</h3><span class="item-kind">TypeScript &middot; The OG</span></div>
-            <p class="item-note">
-              The original MeshQL. Schema-driven REST + GraphQL APIs with
-              Express, federation resolvers, four database backends. Where the
-              model was proven.
-            </p>
-            <p class="item-links">
-              <a class="underlined" href="https://github.com/tailoredshapes/meshql-ts">Source</a>
-            </p>
-          </article>
-          <article>
-            <div class="item-head"><h3>meshql-java</h3><span class="item-kind">Java 21 &middot; Enterprise</span></div>
-            <p class="item-note">
-              The same model in Java. Jetty 12, virtual threads, PostgreSQL,
-              MongoDB, SQLite, ksqlDB. Better performance at the cost of more
-              memory&mdash;a natural fit for virtual infrastructure.
-            </p>
-            <p class="item-links">
-              <a class="underlined" href="https://tailoredshapes.github.io/meshql/">Documentation</a>
-              <a class="underlined" href="https://github.com/tailoredshapes/meshql-java">Source</a>
-            </p>
-          </article>
-          <article>
-            <div class="item-head"><h3>meshql-rs</h3><span class="item-kind">Rust &middot; Deploy anywhere</span></div>
-            <p class="item-note">
-              The same model in Rust. Pluggable backends, sub-millisecond
-              internals, a 3.8MB binary. Lambda, edge, embedded. The hard bits
-              are done.
-            </p>
-            <p class="item-links">
-              <a class="underlined" href="https://github.com/tailoredshapes/meshql-rs">Source</a>
-            </p>
-          </article>
-        </div>
+      <p class="copy copy--gap-sm">
+        Because it's config-driven, an LLM can generate a complete solution in
+        minutes. That isn't &ldquo;AI-assisted&rdquo; as an afterthought; the
+        model was designed to be describable in a sentence and generated from
+        one.
+      </p>
+      <div class="link-row">
+        <a class="more" href="https://tailoredshapes.github.io/meshql/">Documentation</a>
+        <a class="more more--quiet" href="https://github.com/tailoredshapes">GitHub</a>
+        <a class="more more--quiet" href="toolkit/">The whole toolkit</a>
       </div>
-
-      <div class="tier">
-        <p class="eyebrow">Storage</p>
-        <div class="stack">
-          <article>
-            <div class="item-head"><h3>merkql</h3><span class="item-kind">Rust &middot; Embedded event log</span></div>
-            <p class="item-note">
-              Kafka semantics backed by a merkle tree. Topics, partitions,
-              consumer groups, and cryptographic inclusion proofs&mdash;without
-              the cluster. The storage engine that makes &ldquo;no server
-              required&rdquo; possible. Single-writer by design, and it says so
-              plainly when you outgrow it.
-            </p>
-            <p class="item-links">
-              <a class="underlined" href="https://tailoredshapes.github.io/merkql/">Documentation</a>
-              <a class="underlined" href="https://github.com/tailoredshapes/merkql">Source</a>
-            </p>
-          </article>
-          <article>
-            <div class="item-head"><h3>merk-aws</h3><span class="item-kind">Rust &middot; S3 Express One Zone</span></div>
-            <p class="item-note">
-              The same log on object storage. Compare-and-swap appends mean
-              concurrent producers serialise against S3 itself, so many Lambdas
-              can write one partition with nothing coordinating them and nothing
-              running between requests.
-            </p>
-          </article>
-          <article>
-            <div class="item-head"><h3>merk-azure</h3><span class="item-kind">Rust &middot; Azure append blobs</span></div>
-            <p class="item-note">
-              The same log again, on native append blobs with server-enforced
-              sealing. No Azure SDK&mdash;a handful of REST calls and a
-              signer&mdash;so an Azure Functions cold start stays small.
-            </p>
-          </article>
-          <article>
-            <div class="item-head"><h3>merkpgql</h3><span class="item-kind">Rust &middot; PostgreSQL</span></div>
-            <p class="item-note">
-              The log in your database and in your transactions. Writers queue on
-              a row lock rather than colliding, events are queryable by key, and
-              an append can share a commit with the domain write that caused
-              it&mdash;which is the outbox problem not existing rather than being
-              solved.
-            </p>
-          </article>
-        </div>
-      </div>
-
-      <div class="tier">
-        <p class="eyebrow">Tooling</p>
-        <div class="stack">
-          <article>
-            <div class="item-head"><h3>Mesher</h3><span class="item-kind">CLI &middot; Code generation</span></div>
-            <p class="item-note">
-              Points at a legacy database, introspects the schema, and generates
-              a complete anti-corruption layer project. The AI-first onramp to
-              MeshQL.
-            </p>
-            <p class="item-links">
-              <a class="underlined" href="https://tailoredshapes.github.io/meshql/reference/mesher">Documentation</a>
-              <a class="underlined" href="https://github.com/tailoredshapes/meshql-java/tree/main/mesher">Source</a>
-            </p>
-          </article>
-          <article>
-            <div class="item-head"><h3>moth</h3><span class="item-kind">Rust &middot; Issue tracking</span></div>
-            <p class="item-note">
-              Git-style file-based issue tracker. Zero setup, stores issues as
-              markdown, works for humans and LLMs equally. How we track work.
-            </p>
-            <p class="item-links">
-              <a class="underlined" href="https://github.com/tailoredshapes/moth">Source</a>
-            </p>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="engage">
-    <div class="column">
-      <p class="eyebrow">Working together</p>
-      <h2 id="engage">How we engage</h2>
-
-      <div class="grid">
-        <article>
-          <h3>Assessment</h3>
-          <p class="item-note">
-            We look at what you have, map the integration points, and tell you
-            what we think. Sometimes the answer is that you don't need us.
-          </p>
-        </article>
-        <article>
-          <h3>Build</h3>
-          <p class="item-note">
-            Architecture, implementation, and delivery. We build the integration
-            layer, test it against your systems, and hand over the source. Your
-            team operates it.
-          </p>
-        </article>
-        <article>
-          <h3>Support</h3>
-          <p class="item-note">
-            Production support and knowledge transfer. We stay as long as you
-            need, then get out of the way.
-          </p>
-        </article>
-      </div>
-
-      <a class="more" href="mailto:tom@tailoredshapes.com">Start a conversation &rarr;</a>
     </div>
   </section>
 
 </main>
 
+<section class="close" aria-labelledby="close-label">
+  <div class="band">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="close-label">First fitting <br> no charge</p>
+    </div>
+    <div class="band__body">
+      <h3>Tell us what you're <strong>stuck behind.</strong></h3>
+      <p>
+        One call. We look at what you have, map the integration points, and tell
+        you what we think. Sometimes the answer is that you don't need us.
+      </p>
+      <a class="email-link" href="mailto:tmarsh@tailoredshapes.com">tmarsh@tailoredshapes.com</a>
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer">
-  <div class="column row">
-    <p>TailoredShapes</p>
-    <p><a class="underlined" href="mailto:tom@tailoredshapes.com">tom@tailoredshapes.com</a></p>
-    <p><a class="underlined" href="https://github.com/tailoredshapes">GitHub</a></p>
-    <p>&copy; 2026 TailoredShapes</p>
+  <div class="site-footer__brand">Tailored<strong>Shapes</strong></div>
+  <div class="site-footer__links">
+    <a href="mailto:tmarsh@tailoredshapes.com">tmarsh@tailoredshapes.com</a>
+    <a href="toolkit/">Toolkit</a>
+    <a href="case-studies/springfield-electric/">Worked example</a>
+    <a href="https://github.com/tailoredshapes">GitHub</a>
+    <span>&copy; 2026</span>
   </div>
 </footer>
 

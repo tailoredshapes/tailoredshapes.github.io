@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Springfield Electric — a worked example — TailoredShapes</title>
+  <meta name="description" content="A worked example of an anti-corruption layer: a legacy PostgreSQL with hostile column names, a CDC pipeline, and clean domain entities in front of it. Runnable source included.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="../../styles.css" rel="stylesheet">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="site-nav" aria-label="Primary">
+  <span class="brand">Tailored<strong>Shapes</strong></span>
+  <a class="nav-page" href="../../">Home</a>
+  <a class="nav-page" href="../../toolkit/">Toolkit</a>
+  <a class="nav-page" href="./" aria-current="page">Worked example</a>
+  <a class="email-link" href="mailto:tmarsh@tailoredshapes.com">Email Tom</a>
+</nav>
+
+<main id="main">
+
+  <section class="band band--open" aria-labelledby="case-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="case-label">Worked example <br> anti-corruption <br> layer</p>
+    </div>
+    <div class="band__body">
+      <h1 class="h1--sub">Springfield <strong>Electric</strong></h1>
+      <p class="lead lead--wide">
+        A utility with an old PostgreSQL, three product teams waiting on it, and
+        a hard constraint: the source system cannot be touched. We put a clean
+        API in front of it and change nothing behind. This one is a worked
+        example rather than a client — the schema, the pipeline and the API are
+        all real and all runnable, so you can check the shape of the answer
+        before you ask us about yours.
+      </p>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="situation-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="situation-label">The situation</p>
+    </div>
+    <div class="band__body prose">
+      <p>
+        The billing database has been correct and load-bearing for decades.
+        Column names scream, dates are VARCHARs in three formats, and every read
+        path in the business has grown a private opinion about how to parse
+        them.
+      </p>
+      <p class="dim">
+        Three product teams need the same data. The options on the table are a
+        shared ORM library — three copies of the same bugs — or a replatform
+        nobody can sign off.
+      </p>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="built-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="built-label">What we built</p>
+    </div>
+    <div class="band__body">
+      <p class="copy copy--gap-sm">
+        A Debezium CDC pipeline reads the write-ahead log and publishes changes
+        into a meshql-managed event log. meshql projects clean domain entities
+        and serves them as REST writes and GraphQL reads. The legacy schema
+        stops at the boundary.
+      </p>
+
+      <figure class="fig">
+        <div class="fig__band">
+          <div>
+            <p class="label">Source · untouched</p>
+            <p>BILLING_ACCT<br>SVC_LOC_MSTR<br>MTR_RDG_HIST</p>
+          </div>
+          <div>
+            <p class="label">Boundary</p>
+            <p>Debezium CDC<br>merkpgql event log<br>mapping + projections</p>
+          </div>
+          <div>
+            <p class="label label--accent">Domain · what apps see</p>
+            <p>Account<br>ServicePoint<br>MeterReading</p>
+          </div>
+        </div>
+        <div class="fig__seam">
+          <span class="tick"></span>
+          <span>meshql · REST writes · GraphQL reads · federation resolvers</span>
+        </div>
+        <div class="fig__clients">
+          <span>Customer portal</span><span>Field ops (iOS)</span><span>Internal billing tools</span>
+        </div>
+        <figcaption class="caption">
+          Fig. 1 — the boundary. Everything above the red mark is the system you
+          already have; everything below it is what we add.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="decisions-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="decisions-label">The decisions <br> and why</p>
+    </div>
+    <div class="band__body">
+      <div class="notes">
+        <article>
+          <h4>Dates get normalised once</h4>
+          <p>
+            Three VARCHAR formats collapse into one ISO-8601 field in the
+            projection. Every date-parsing bug in the estate now has exactly one
+            place left to live.
+          </p>
+        </article>
+        <article>
+          <h4>The log is a table, not a cluster</h4>
+          <p>
+            merkpgql puts the event log in a database the ops team already backs
+            up and monitors — so the work needs no new sign-off, no new on-call
+            rotation and no new budget line.
+          </p>
+        </article>
+        <article>
+          <h4>Writes go through the boundary too</h4>
+          <p>
+            A read-only façade would leave three apps writing legacy SQL, and
+            the mess would grow back. REST writes map through the same domain
+            model, so the boundary holds in both directions.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="result-label">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="result-label">Result</p>
+    </div>
+    <div class="band__body prose">
+      <p>
+        Three teams build against a documented API instead of negotiating with a
+        schema. The billing system carries on doing exactly what it did before,
+        and nobody has to ask the DBA to approve a migration.
+      </p>
+      <p class="dim">
+        The replatform stays on the roadmap. When it happens, it happens behind
+        the boundary — and the three apps never find out.
+      </p>
+      <a class="more" href="https://tailoredshapes.github.io/meshql/examples/legacy">Working source and infrastructure config</a>
+    </div>
+  </section>
+
+</main>
+
+<section class="close close--compact" aria-labelledby="case-close-label">
+  <div class="band">
+    <div class="band__margin">
+      <span class="mark"></span>
+      <p class="label" id="case-close-label">First fitting <br> no charge</p>
+    </div>
+    <div class="band__body">
+      <h3>The interesting part is <strong>your version of it.</strong></h3>
+      <a class="email-link" href="mailto:tmarsh@tailoredshapes.com">tmarsh@tailoredshapes.com</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__brand">Tailored<strong>Shapes</strong></div>
+  <div class="site-footer__links">
+    <a href="mailto:tmarsh@tailoredshapes.com">tmarsh@tailoredshapes.com</a>
+    <a href="../../">Home</a>
+    <a href="../../toolkit/">Toolkit</a>
+    <a href="https://github.com/tailoredshapes">GitHub</a>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
